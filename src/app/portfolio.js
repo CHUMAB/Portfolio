@@ -7,30 +7,75 @@ import portfolioArray from "./portfolioItem";
 
 const Portfolio = () => {
 
-    const [boxes, setBoxes] = React.useState(true);
-    const [donut, setDonut] = React.useState(true);
+    const [expand, setExpand] = React.useState(true);
     const [description, setDescription] = React.useState(true);
-    const [descriptionString, setDescriptionString] = React.useState("");
+    const [descriptionString, setDescriptionString] = React.useState("Read More");
     const [enlargedImage, setEnlargedImage] = React.useState("");
     const [isImage, setIsImage] = React.useState(false);
+    const [isImageSlideshow, setIsImageSlideshow] = React.useState(false);
+    const [slideshowImages, setSlideshowImages] = React.useState([]);
+    const [isFigma, setIsFigma] = React.useState(false);
+    const [videoAndSlideshowSwitch, setVideoAndSlideshowSwitch] = React.useState(false);
+    const [imageIndex, setImageIndex] = React.useState(0);
 
-    const handleExpand = (name, isImage, descriptionString, toggle) => {
+    const handleExpand = (name, isImage, descriptionString, isFigma, slideshow, toggle) => {
+        if (slideshow == undefined) {
+            setIsImageSlideshow(false);
+        }
+        else {
+            setIsImageSlideshow(true)
+            setSlideshowImages(slideshow);
+        }
         setIsImage(isImage);
-        setDescription(toggle);
+        setExpand(toggle);
+        setIsFigma(isFigma)
         setDescriptionString(descriptionString);
         if (name != "close") {
             setEnlargedImage(name)
         }
     }
 
-    const handleReturn = (toggle) => {
-        setDescription(toggle);
+    const handleReturn = (desc) => {
+        setExpand(desc);
+    }
+
+    const HandleDescription = (desc) => {
+        setDescriptionString(desc);
+    }
+
+    const HandleSlideshow = (index, array, next) => {
+        if (next = true) {
+            index += 1;
+
+            if (index > array.length - 1) {
+            index = 0;
+            }
+        }
+        else if (next = false) {
+            index -= 1;
+
+            if (index < 0) {
+            index = array.length;
+            }
+        }
+        setImageIndex(index);
+    }
+
+    const handleVideoImagesSwitch = () => {
+        setVideoAndSlideshowSwitch(!videoAndSlideshowSwitch)
+    }
+
+    const handleShowDescriptions = () => {
+        setDescription(!description);
     }
 
     return (
         <> 
-        {description ? 
+        {expand ? 
+        <>
+        <ShowDescriptionButton onClick={handleShowDescriptions}>Show Descriptions</ShowDescriptionButton>
         <PortfolioHolder>
+            
             {portfolioArray.map((item) => {
                 return (
                 <>
@@ -38,13 +83,26 @@ const Portfolio = () => {
                     <>
                     <Title>{item.name}</Title>
                     {item.isImage ? 
-                        <img id="image"  onClick={() => handleShowDescription(!description)} width="100%" height="100%" object-fit="scale-down" src={item.imageURL} alt="Empire Donuts Website Redesign" />
+                    <>
+                        {item.setThumbnailImage ? 
+                        <img id="image" width="100%" height="100%" object-fit="scale-down" src={item.slideshow[Math.floor(Math.random() * item.slideshow.length)]} alt="" />
+
+                        : <img id="image" width="100%" height="100%" object-fit="scale-down" src={item.imageURL} alt="" />
+                        }</>
                         :
-                        <video controls>
-                            <source src={item.imageURL} />
+                        <>
+                        {item.setThumbnailImage ? 
+                        <img id="image" width="100%" height="100%" object-fit="scale-down" src={item.slideshow[Math.floor(Math.random() * item.slideshow.length)]} alt="" />     
+                            : 
+                        <video loop>
+                            <source src={item.imageURL} type="video/mp4"/>
                         </video>
+                        }</>
+                        
                     }
-                    <Expand onClick={() => handleExpand(item.imageURL, item.isImage, item.description, !description)}>EXPAND</Expand>
+                    <Expand onClick={() => handleExpand(item.imageURL, item.isImage, item.description, item.isFigma, item.slideshow, !expand)}>EXPAND</Expand>
+                    {description ? <Description>{item.description}</Description> : <></>}
+                    
                     </>
                 </ObjectDisplay>
                 </>
@@ -52,27 +110,82 @@ const Portfolio = () => {
             })}
             <>
             </>
-            </PortfolioHolder> 
-            :
-            <>
-                <ObjectFullDisplay>
-                {isImage ? 
-                    <img id="image" width="100%" height="100%" object-fit="scale-down" src={enlargedImage} />
-                :
+        </PortfolioHolder> </>
+        :
+        <>
+            <ObjectFullDisplay>
+            <Return onClick={() => handleReturn(!expand)}>GO BACK</Return>
+            {isImage ? 
+                
                 <>
-                <video controls>
-                    <source src={enlargedImage} />
+                {isFigma ?
+                    //might only have one figma link but want it on the portfolio
+                    <>
+                    <FigmaHolder 
+                    src="https://embed.figma.com/proto/c6mHsyyDaClcayaI8bOovy/Project-3?node-id=28-83&p=f&scaling=fit&content-scaling=fit&page-id=0%3A1&starting-point-node-id=28%3A83&embed-host=share" />           
+                    </>
+                    :
+                    //images go here
+                    <>
+                    {isImageSlideshow ?
+                    <>
+                        <ImageHolder id="image" src={slideshowImages[imageIndex]} />
+                        <ButtonHolder>
+                        <PrevButton onClick={() => HandleSlideshow(imageIndex, slideshowImages, true)}>PREV</PrevButton>
+                        <NextButton onClick={() => HandleSlideshow(imageIndex, slideshowImages, false)}>NEXT</NextButton>
+                        
+                        </ButtonHolder>
+                    </>
+                        :
+                        <ImageHolder id="image"  src={enlargedImage} />
+                    }
+                    </>
+                }
+                </>
+                :
+                //end of isImage - videos go here
+                
+                <>
+                {isImageSlideshow ?
+                <>
+                
+                    {videoAndSlideshowSwitch ?
+                    //some videos have an image or images attached - they just go here too
+                    <>
+                        <ImageHolder id="image" src={slideshowImages[imageIndex]} />
+                        <ButtonHolder>
+                        <PrevButton onClick={() => HandleSlideshow(imageIndex, slideshowImages, true)}>PREV</PrevButton>
+                        <NextButton onClick={() => HandleSlideshow(imageIndex, slideshowImages, false)}>NEXT</NextButton>
+                        </ButtonHolder>
+                        <ViewImagesButton onClick={() => handleVideoImagesSwitch()}>View Video</ViewImagesButton>
+                    </> 
+                    ://videoAndSlideshowSwitch false
+                    <>
+                    <video controls loop >
+                        <source src={enlargedImage} type="video/mp4"/>
+                    </video>
+                    <ViewImagesButton onClick={() => handleVideoImagesSwitch()}>View Images</ViewImagesButton></>
+                    }
+                </>
+                ://isImageSlideshow false
+                <>
+                <video controls loop >
+                    <source src={enlargedImage} type="video/mp4"/>
                 </video>
                 </>
                 }
-                <description>{descriptionString}</description>
-                </ObjectFullDisplay>
-                <Expand onClick={() => handleReturn(!description)}>GO BACK</Expand>
             </>
             }
-            </>
+                
+                
+            </ObjectFullDisplay>
+            
+        </>
+        }
+        </>
     )
 }
+
 
 const DonutDisplay = () => {
     return (
@@ -85,8 +198,40 @@ const DonutDisplay = () => {
     );
 }
 
-const Padding = styled.div`
-    height: 100%;
+const ButtonHolder = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+`;
+
+const NextButton = styled.div`
+    background-color: blue;
+    width: 50%;
+    float: right;
+    text-align: center;
+    padding-left:
+`;
+
+const PrevButton = styled.div`
+    background-color: Green;
+    width: 50%;
+    text-align: center;
+`;
+
+const ShowDescriptionButton = styled.div`
+    background-color: Green;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+`;
+
+const ViewImagesButton = styled.div`
+    background-color: orange;
+    width: 50%;
+    float: right;
+    text-align: center;
+    padding-left:
 `;
 
 const Expand = styled.div`
@@ -94,6 +239,14 @@ const Expand = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
+    background-color: darkcyan;
+`;
+
+const Return = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
     background-color: darkcyan;
 `;
 
@@ -106,12 +259,12 @@ const Title = styled.div`
 `;
 
 const Description = styled.div`
-    padding-bottom: 50%;
+    width: 90%;
 `;
 
-const FadedImage = styled.div`
-
-    background-blend-mode: darken;
+const ImageHolder = styled.img`
+    width: 90%;
+    align-items: center;
 `;
 
 const ObjectDisplay = styled.div`
@@ -120,24 +273,26 @@ const ObjectDisplay = styled.div`
     color: white;
     padding-left: 1%;
     padding-top: 1%;
-    height: 40%;
+    
     width: 30%;
 `;
 
 const ObjectFullDisplay = styled.div`
     display: flex;
+    margin: auto;
     flex-direction: column;
+    align-items: center;
     color: white;
-    padding-left: 1%;
     padding-top: 1%;
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 90%;
 `;
 
 const PortfolioHolder = styled.div`
     display: flex;
     flex-direction: row;
-    height: 95vh;
+    flex-wrap: wrap;
+    justify-content: center;
 `;
 
 const FigmaHolder = styled.iframe`
@@ -152,36 +307,4 @@ const ReturnButton = styled.div`
     width: 20%;
     background-color: DarkSlateGrey;
 `;
-
-
-// :
-// <>
-// <img id="image" style={{opacity: 0.3}} onClick={handleShowDescription} width="100%" height="100%" object-fit="scale-down" src={item.imageURL} alt="Empire Donuts Website Redesign">                                      
-// </img >
-// <Description>{item.description}</Description>
-// </>}
-
-// old may reuse?
-// {boxes ? <><LeftHalf>
-//             <h2>Concept: </h2>
-//             <p>Redesign of local donut shop "Empire Donuts"</p>
-//             <h2>Info: </h2>
-//             <p>Interactable Figma project made to mimic website functionality. Redesign with a focus on clarity, 
-//                 efficient delivery of information for any user, and better displaying the high-quality graphics and
-//                 images present on the official website.</p>
-//             <h2>Notes: </h2>
-//             <p>I love Empire Donuts and hope they improve their website</p>
-//         </LeftHalf>
-//         <RightHalf>
-//             <img id="donut" onClick={handleExpandImage}
-//             width="100%" height="100%" object-fit="scale-down" src="../donuts.png" alt="Empire Donuts Website Redesign"></img>
-//         </RightHalf></> 
-//         : 
-//         <><FullWidth>
-//             <ReturnButton id="return" onClick={handleReturn}>RETURN</ReturnButton>
-//             { donut ? <DonutDisplay /> : <div></div> }
-            
-//         </FullWidth> 
-//         </>}
-
 export default Portfolio;

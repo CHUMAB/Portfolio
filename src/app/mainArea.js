@@ -121,10 +121,6 @@ const Button = styled.div`
 const HolderDiv = styled.div`
     height: 85vh;
     width: 85vw;
-    border-left: 2px solid gray;
-    border-right: 2px solid gray;
-    border-right: 2px solid gray;
-    border-bottom: 2px solid gray;
 `;
 
 export default MainArea;
