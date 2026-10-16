@@ -6,6 +6,9 @@ const nextConfig = {
   images: {
     unoptimized: true, // Disable default image optimization
   },
+  compiler: {
+    styledComponents: true,
+  },
   assetPrefix: isProd ? '/study/' : '',
   basePath: isProd ? '/study' : '',
   output: 'export'
