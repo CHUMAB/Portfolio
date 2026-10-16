@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useRef } from 'react';
 import styled from 'styled-components';
-export const dynamic = "force-dynamic"
+//export const dynamic = "force-dynamic"
 
 const Runescape = () => {
 
@@ -22,6 +22,7 @@ const Runescape = () => {
 
 
     return(
+        
         <Tables key={1000}>
                 <InnerTables className="mt-10">
                 {runescapeData.map((skills) =>{

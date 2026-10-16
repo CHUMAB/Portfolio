@@ -11,9 +11,8 @@ const Resume = () => {
 
     return (
         <>  
-            <h1>GAMER</h1>
             <object class="pdf" 
-            data="../RESUME.pdf"
+            data="../RESUME-Youth.pdf"
             width="100%"
             height="100%">
             </object>

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
-export const dynamic = "force-dynamic"
+//export const dynamic = "force-dynamic"
 
 export async function POST(req) {
 
@@ -9,8 +9,8 @@ export async function POST(req) {
     if (runescape) {                    
         const runescapeData = [];
 
-        const fetchData = await axios.get('https://templeosrs.com/api/player_stats.php?player=CHUMBABOY');
-
+        const fetchData = await axios.get('https://templeosrs.com/api/player_stats.php?player=CHUMBABOY&date=1792039015');
+        console.log(fetchData)
         let data = fetchData.data.data;
 
         runescapeData.push(
@@ -39,7 +39,10 @@ export async function POST(req) {
             {skill: 'Hunter', level: data.Hunter_level, key: 'row2'},
             {skill: 'Sailing', level: data.Sailing_level, key: 'row3'}]
         );
-        return NextResponse.json(runescape);
+        return NextResponse.json(runescapeData);
     }
+    return NextResponse.json(runescape);
 }
+
+export const dynamic = "force-static";
 
