@@ -12,7 +12,7 @@ import AboutMe from "./aboutMe";
 import PortfolioSchool from './portfolioSchool';
 import Portfolio from './portfolio';
 
-const MainArea = () => {
+export default function MainArea() {
 
     const [resume, setResume] = React.useState(false);
     const [runescape, setRunescape] = React.useState(false);
@@ -177,4 +177,3 @@ const HolderDiv = styled.div`
     background-color: rgb(30, 36, 56);
 `;
 
-export default MainArea; 
