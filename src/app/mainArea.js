@@ -21,16 +21,13 @@ const MainArea = () => {
     const [portfolio, setPortfolio] = React.useState(true);
 
     const handlePageSwitch = (event) => {
-        //get the name of the button
         var clickedButton = event.target.id;
 
-        //disable all of them
         setAbout(false);
         setResume(false);
         setPortfolio(false);
         setRunescape(false);
 
-        //switch case to enable the clicked button
         switch(clickedButton) {
             case "About":
                 setAbout(true);
@@ -47,8 +44,6 @@ const MainArea = () => {
         }
     }
 
-
-
     return (
         <>
         <AreaHolder id="areaholder">
@@ -57,7 +52,7 @@ const MainArea = () => {
         <MenuDiv id="MenuDiv">
             <NameDiv>CAM WATT</NameDiv>
             <BufferDiv></BufferDiv>
-            <Button id="About" onClick={handlePageSwitch} >ABOUT ME</Button>
+            <Button id="About" onClick={handlePageSwitch} >ABOUT</Button>
             <Button id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</Button>
             <Button id="Resume" onClick={handlePageSwitch} >RESUME</Button>
             {/* <Button id="Runescape" onClick={handlePageSwitch} >RUNESCAPE</Button> */}
@@ -73,9 +68,32 @@ const MainArea = () => {
             {portfolio ? <HolderDiv><Portfolio /></HolderDiv> : <div></div>}
         </MainAreaHolder>
         </AreaHolder>
+        <Footer>
+            <FooterText>All work on this website developed by Cam Watt please be nice to me</FooterText>
+            <FooterText>This is a mobile UNfriendly website please email me at CamWattDev@gmail.com to discuss the price of a mobile overhaul</FooterText>
+        </Footer>
         </>
     )
 }
+
+const FooterText = styled.div`
+    display: flex;
+    width: 50%;
+    height: 100%;
+    color: rgba(247, 247, 248, 0.24);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+`;
+
+const Footer = styled.div`
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+`;
 
 const AreaHolder = styled.div`
     display: flex;
@@ -89,7 +107,6 @@ const MainAreaHolder = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    height: 100%;
     width: 100%;
 `;
 
@@ -155,9 +172,9 @@ const Button = styled.div`
 `;
 
 const HolderDiv = styled.div`
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     background-color: rgb(30, 36, 56);
 `;
 
-export default MainArea;
+export default MainArea; 

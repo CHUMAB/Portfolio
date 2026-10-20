@@ -18,8 +18,6 @@ const PortfolioSchool = () => {
     const [videoAndSlideshowSwitch, setVideoAndSlideshowSwitch] = React.useState(false);
     const [imageIndex, setImageIndex] = React.useState(0);
 
-    
-
     const handleExpand = (name, isImage, descriptionString, isFigma, slideshow, expandToggle) => {
         if (slideshow == undefined) {
             setIsImageSlideshow(false);
@@ -46,7 +44,6 @@ const PortfolioSchool = () => {
         console.log("INDEX: "+index)
         console.log("array length: "+array.length)
         if (next) {
-            console.log("AA")
             index += 1;
 
             if (index > array.length - 1) {
@@ -71,6 +68,7 @@ const PortfolioSchool = () => {
         setDescription(!description);
     }
     return (
+        <FullPageHolder>
         <>
         
         {expand ? 
@@ -79,7 +77,7 @@ const PortfolioSchool = () => {
         : <ShowDescriptionButton onClick={handleShowDescriptions}>Show Descriptions</ShowDescriptionButton>}
         <PortfolioHolder>
             
-            {portfolioArray.map((item) => {//school portfolio
+            {portfolioArray.map((item) => {
                 return (
                 <>
                 <ObjectDisplay>
@@ -165,12 +163,7 @@ const PortfolioSchool = () => {
                             <PrevButton onClick={() => HandleSlideshow(imageIndex, slideshowImages, false)}>⮜</PrevButton>
                             <ImageHolder id="image" src={slideshowImages[imageIndex]} />
                             <NextButton onClick={() => HandleSlideshow(imageIndex, slideshowImages, true)}>⮞</NextButton>
-                            
                         </SlideshowHolder>
-                        
-                        
-
-                        
                     </> 
                     ://videoAndSlideshowSwitch false
                     <>
@@ -195,6 +188,7 @@ const PortfolioSchool = () => {
         </>
         }
         </>
+        </FullPageHolder>
     )
 }
 
@@ -209,6 +203,14 @@ const DonutDisplay = () => {
         </>
     );
 }
+
+const FullPageHolder = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(30, 36, 56);
+    padding-bottom: 1%;
+`;
 
 const ButtonHolder = styled.div`
     display: flex;
@@ -407,7 +409,7 @@ const ObjectFullDisplay = styled.div`
     align-items: center;
     color: white;
     padding-top: 1%;
-    height: 90vh;
+    height: 100%;
     width: 90%;
     background-color: rgb(26, 26, 26);
     border-left: 2px solid OrangeRed;
@@ -419,6 +421,7 @@ const PortfolioHolder = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 100%;
     justify-content: center;
 `;
 

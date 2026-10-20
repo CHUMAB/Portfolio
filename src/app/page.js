@@ -2,7 +2,7 @@ import Image from 'next/image'
 import TaskList from './taskList';
 import Runescape from './runescape';
 import MainArea from './mainArea';
-
+import FooterExport from './Footer';
 
 
 export default function Home() {
@@ -26,4 +26,6 @@ export default function Home() {
     margin-left: 5vw;
     margin-right: 5vw;
 `;
+
+
 }

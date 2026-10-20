@@ -15,15 +15,12 @@ const Portfolio = () => {
     const [current, setCurrent] = React.useState(false);
 
     const handlePortfolioTabButtons = (event) => {
-        //get the name of the button
         var clickedButton = event.target.id;
 
-        //disable all of them
         setSchool(false);
         setCapstone(false);
         setCurrent(false);
 
-        //switch case to enable the clicked button
         switch(clickedButton) {
             case "school":
                 setSchool(true);
@@ -41,9 +38,9 @@ const Portfolio = () => {
     const MenuButtons = () => {
         return (
             <MenuDiv id="PortMenu">
-                <Button id="school" onClick={handlePortfolioTabButtons}>School Work</Button>
-                <Button id="capstone" onClick={handlePortfolioTabButtons}>Capstone</Button>
-                <Button id="current" onClick={handlePortfolioTabButtons}>Current Work</Button>
+                {school ? <ActiveButton id="school" onClick={handlePortfolioTabButtons}>School Work</ActiveButton> : <Button id="school" onClick={handlePortfolioTabButtons}>School Work</Button>}
+                {capstone ? <ActiveButton id="capstone" onClick={handlePortfolioTabButtons}>Capstone</ActiveButton> : <Button id="capstone" onClick={handlePortfolioTabButtons}>Capstone</Button>}
+                {current ? <ActiveButton id="current" onClick={handlePortfolioTabButtons}>Current Work</ActiveButton> : <Button id="current" onClick={handlePortfolioTabButtons}>Current Work</Button>}
             </MenuDiv>  
         )
     }
@@ -63,11 +60,10 @@ const MenuDiv = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 0.5%;
 `;
 
 const Button = styled.div`
-    height: 4.4vh;
+    height: 80%;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
     width: 15%;
@@ -79,10 +75,29 @@ const Button = styled.div`
     background-color: rgb(26, 26, 26);
     margin-bottom: 15px;
     &:hover {
-        background-color: rgb(26, 26, 26);
+        background-color: rgba(95, 95, 95, 0.36);
         cursor: pointer;
     }
 `;
+
+const ActiveButton = styled.div`
+    height: 80%;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #36A1E7;
+    margin-bottom: 15px;
+    &:hover {
+        background-color: rgba(95, 95, 95, 0.23)
+        cursor: pointer;
+    }
+`;
+
 
 
 
