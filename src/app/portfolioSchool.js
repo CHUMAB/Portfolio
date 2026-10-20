@@ -192,18 +192,6 @@ const PortfolioSchool = () => {
     )
 }
 
-
-const DonutDisplay = () => {
-    return (
-        <>
-        <FigmaHolder 
-            src="https://embed.figma.com/proto/c6mHsyyDaClcayaI8bOovy/Project-3?node-id=28-83&p=f&scaling=fit&content-scaling=fit&page-id=0%3A1&starting-point-node-id=28%3A83&embed-host=share" />           
-        <Padding height="100px">WUAH</Padding>
-        <ReturnButton >DESC</ReturnButton>
-        </>
-    );
-}
-
 const FullPageHolder = styled.div`
     display: flex;
     flex-direction: column;

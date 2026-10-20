@@ -3,17 +3,25 @@ import TaskList from './taskList';
 import Runescape from './runescape';
 import MainArea from './mainArea';
 import FooterExport from './Footer';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+   @import url("https://fonts.googleapis.com/css?family=Quicksand");
+   body {
+      color: red;
+   }
+`
 
 
 export default function Home() {
   return (
-    <div>
-    
+    <>
+    <GlobalStyle>
     <MainArea />
-    
+    </GlobalStyle>
     {/* Tasklist is not needed now, leaving here commented out */}
     {/* <TaskList /> */}
-    </div>
+    </>
   )
 
   const MainHolder = styled.div`
