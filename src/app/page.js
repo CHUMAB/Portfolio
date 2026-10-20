@@ -3,22 +3,12 @@ import TaskList from './taskList';
 import Runescape from './runescape';
 import MainArea from './mainArea';
 import FooterExport from './Footer';
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-   @import url("https://fonts.googleapis.com/css?family=Quicksand");
-   body {
-      color: red;
-   }
-`
-
+import { GlobalStyle } from 'styled-components';
 
 export default function Home() {
   return (
     <>
-    <GlobalStyle>
     <MainArea />
-    </GlobalStyle>
     {/* Tasklist is not needed now, leaving here commented out */}
     {/* <TaskList /> */}
     </>
