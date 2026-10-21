@@ -13,14 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      {/* IDK WHATS HAPPENING BUT START HERE */}
       <body style={{margin: 0 }} className={inter.className}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   )
 }
-
-const Body = styled.body`
-    margin: 0px;
-`;
 

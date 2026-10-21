@@ -8,9 +8,9 @@ import Runescape from './runescape';
 import Dashboard from './dashboard';
 import Syllabus from './syllabus';
 import Resume from './resume';
-import AboutMe from "./aboutMe";
+import AboutMe from "../components/aboutMe";
 import PortfolioSchool from './portfolioSchool';
-import Portfolio from './portfolio';
+import Portfolio from '../components/portfolio';
 
 export default function MainArea() {
 
@@ -22,7 +22,7 @@ export default function MainArea() {
 
     const handlePageSwitch = (event) => {
         var clickedButton = event.target.id;
-
+        console.log(clickedButton);
         setAbout(false);
         setResume(false);
         setPortfolio(false);
