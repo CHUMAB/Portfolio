@@ -10,7 +10,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  assetPrefix: isProd ? '/study/' : '',
   output: 'export'
 };
 
