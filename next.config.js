@@ -11,7 +11,6 @@ const nextConfig = {
     styledComponents: true,
   },
   assetPrefix: isProd ? '/study/' : '',
-  basePath: isProd ? '/study' : '',
   output: 'export'
 };
 
