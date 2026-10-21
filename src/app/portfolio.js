@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useRef } from 'react';
 import styled from 'styled-components';
 import portfolioArray from "./portfolioItem";
-import PortfolioSchool from "./portfolioSchool";
+import PortfolioSchool from "./portfolioschool";
 import Shmucks from "./portfolioShmucks.js";
 
 const Portfolio = () => {
