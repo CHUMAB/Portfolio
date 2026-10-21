@@ -84,6 +84,7 @@ const FooterText = styled.div`
     align-items: center;
     text-align: center;
     justify-content: center;
+    
 `;
 
 const Footer = styled.div`
@@ -93,6 +94,7 @@ const Footer = styled.div`
     align-items: center;
     text-align: center;
     justify-content: center;
+    background-color: rgb(26, 32, 70);
 `;
 
 const AreaHolder = styled.div`

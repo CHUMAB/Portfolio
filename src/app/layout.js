@@ -21,7 +21,6 @@ export default function RootLayout({ children }) {
 }
 
 const Body = styled.body`
-  width: 100%;
   margin: 0px;
 `;
 
