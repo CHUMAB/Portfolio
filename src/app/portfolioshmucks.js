@@ -9,7 +9,7 @@ const Shmucks = () => {
     return (
         <>
         <ShmucksHolder>
-            <LinkHolder><Link target="_blank" href="https://defeated-wizards.itch.io/shmucks">ITCH.IO Link 🔗 </Link></LinkHolder>
+            <LinkHolder><Link target="_blank" href="https://defeated-wizards.itch.io/shmucks">⎋ ITCH.IO Link</Link></LinkHolder>
         <UpperContentHolder>
             <ImageHolder id="shmucksrenderimage" src="../SHMUCKS_Render.png"></ImageHolder>
             <HalfTextArea id="textarea">
@@ -23,12 +23,9 @@ const Shmucks = () => {
                 </Body>
                 <Body><br /><br />
                 </Body>
-                
             </HalfTextArea>
-            
         </UpperContentHolder>
         <LowerContentHolder>
-            
             <FullTextArea id="textarea">
                 <Title>CORE CONCEPTS</Title><br />
                 <Body>- Behaviour Trees<br />
@@ -93,13 +90,13 @@ const ShmucksHolder = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: rgb(30, 36, 56);
+    background-color: rgb(29, 29, 31);
 `;
 
 const Title = styled.div`
     display: flex;
     width: 100%;
-    background-color: rgb(30, 36, 56);
+    background-color: rgb(29, 29, 31);
     font-size: 30px;
     font-weight: bold;
     color: #36A1E7;
@@ -108,7 +105,7 @@ const Title = styled.div`
 const Body = styled.div`
     display: flex;
     width: 100%;
-    background-color: rgb(30, 36, 56);
+    background-color: rgb(29, 29, 31);
 `;
 
 const UpperContentHolder = styled.div`
@@ -116,7 +113,7 @@ const UpperContentHolder = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: rgb(30, 36, 56);
+    background-color: rgb(29, 29, 31);
 `;
 
 const LowerContentHolder = styled.div`
@@ -125,7 +122,7 @@ const LowerContentHolder = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    background-color: rgb(30, 36, 56);
+    background-color: rgb(29, 29, 31);
 `;
 
 const HalfTextArea = styled.div`

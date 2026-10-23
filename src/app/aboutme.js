@@ -15,7 +15,8 @@ const AboutMe = () => {
                 <ImageHolder id="CamImage" src="../CamImgCropped.png"></ImageHolder>
                 <Column>
                 <Title>ABOUT ME<br /></Title>
-                <BodyText>Hi! My name is Cam, I am a recent graduate of the Interactive Media Developer program at Camosun College. My studies focused on programming, 2D and 3D art and animation, and video game development. </BodyText>
+                <BodyText>Hi! My name is Cam, I am a recent graduate of the Interactive Media Developer program at Camosun College. My studies focused on programming, 2D and 3D art and animation, video game development, 
+                    UI/UX design, as well as web development. I have a basic understanding of database management, cybersecurity, and computer mathamatics </BodyText>
                 </Column>
             </ContentHolder>
             
@@ -30,7 +31,8 @@ const AboutMe = () => {
         </AboutHolder>
         <AboutHolder>
             <LowerBodyText>
-                My past work experience was focused on child and youth care. 
+                I tolerate webdev overall and even enjoy some aspects of it. Javascript was the language that showed me just how much I could achieve with programming, and learning React has streamlined creating this website
+                significantly. Programming this website was a fun project, but I find designing is far less in other mediums.
                 <br />
             </LowerBodyText>
         </AboutHolder>
@@ -40,8 +42,10 @@ const AboutMe = () => {
 }
 const FullPage = styled.div`
     display: flex;
-    height: 100%;
+    height: 86vh;
     flex-direction: column;
+    align-items: center;
+    background-color: rgb(29, 29, 31);
 `;
 const ImageHolder = styled.img`
     display: flex;
@@ -87,8 +91,7 @@ const AboutHolder = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 80%;
     margin-top: 2%;
 `;
 const ContentHolder = styled.div`

@@ -1,4 +1,4 @@
-'use server'
+'use client'
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useRef } from 'react';
@@ -8,9 +8,9 @@ import Runescape from './runescape';
 import Dashboard from './dashboard';
 import Syllabus from './syllabus';
 import Resume from './resume';
-import AboutMe from "../components/aboutMe";
+import AboutMe from "./aboutme";
 import PortfolioSchool from './portfolioschool';
-import Portfolio from '../components/portfolio';
+import Portfolio from './portfolio';
 
 export default function MainArea() {
 
@@ -52,13 +52,14 @@ export default function MainArea() {
         <MenuDiv id="MenuDiv">
             <NameDiv>CAM WATT</NameDiv>
             <BufferDiv></BufferDiv>
-            <Button id="About" onClick={handlePageSwitch} >ABOUT</Button>
+            <LeftButton id="About" onClick={handlePageSwitch} >ABOUT</LeftButton>
             <Button id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</Button>
-            <Button id="Resume" onClick={handlePageSwitch} >RESUME</Button>
+            <RightButton id="Resume" onClick={handlePageSwitch} >RESUME</RightButton>
             {/* <Button id="Runescape" onClick={handlePageSwitch} >RUNESCAPE</Button> */}
             {/* <Button className="rounded-t-lg"></Button> */}
         </MenuDiv>
         </MenuHolder>
+        <Background>
         <MainAreaHolder id="MainAreaHolder">
             
             {about ?<HolderDiv><AboutMe /></HolderDiv> : <div></div>}
@@ -67,11 +68,13 @@ export default function MainArea() {
             {syllabus ? <HolderDiv><Syllabus /></HolderDiv> : <div></div>}
             {portfolio ? <HolderDiv><Portfolio /></HolderDiv> : <div></div>}
         </MainAreaHolder>
-        </AreaHolder>
+        </Background>
         <Footer>
-            <FooterText>All work on this website developed by Cam Watt please be nice to me</FooterText>
-            <FooterText>This is a mobile UNfriendly website please email me at CamWattDev@gmail.com to discuss the price of a mobile overhaul</FooterText>
+            <FooterText>This is a mobile UNfriendly website please email me at CamWattDev@gmail.com to discuss a mobile overhaul</FooterText>
+            <FooterText>All work on this website developed by Cam Watt please be nice to me | © 2026 Cam Watt</FooterText>
         </Footer>
+        </AreaHolder>
+        
         </>
     )
 }
@@ -85,6 +88,11 @@ const FooterText = styled.div`
     text-align: center;
     justify-content: center;
     
+`;
+
+const Background = styled.div`
+    display: flex;
+    height: 100%;
 `;
 
 const Footer = styled.div`
@@ -154,6 +162,52 @@ const Button = styled.div`
     height: 4.4vh;
     border-right: 2px solid OrangeRed;
     border-left: 2px solid OrangeRed;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: .5%;
+    margin-bottom: .5%;
+    &:hover {
+        background-color: rgba(65, 65, 65, 0.21);
+        border-bottom: 1px solid rgb(26, 26, 26);
+        cursor: pointer;
+    }
+    &:active:not(:disabled) {
+        background-color: rgb(26, 26, 26);
+        border-bottom: 1px solid rgb(26, 26, 26);
+    }
+`;
+
+const LeftButton = styled.div`
+    border-top:
+    height: 4.4vh;
+    border-left: 2px solid OrangeRed;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: .5%;
+    margin-bottom: .5%;
+    &:hover {
+        background-color: rgba(65, 65, 65, 0.21);
+        border-bottom: 1px solid rgb(26, 26, 26);
+        cursor: pointer;
+    }
+    &:active:not(:disabled) {
+        background-color: rgb(26, 26, 26);
+        border-bottom: 1px solid rgb(26, 26, 26);
+    }
+`;
+
+const RightButton = styled.div`
+    border-top:
+    height: 4.4vh;
+    border-right: 2px solid OrangeRed;
     width: 20%;
     display: flex;
     justify-content: center;

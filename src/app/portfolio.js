@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import styled from 'styled-components';
 import portfolioArray from "./portfolioItem";
 import PortfolioSchool from "./portfolioschool";
-import Shmucks from "./portfolioShmucks.js";
+import Shmucks from "./portfolioshmucks.js";
 
 const Portfolio = () => {
 
@@ -32,7 +32,6 @@ const Portfolio = () => {
                 setCurrent(true);
                 break;
         }
-
     }
 
     const MenuButtons = () => {
@@ -60,6 +59,7 @@ const MenuDiv = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: rgb(29, 29, 31);
 `;
 
 const Button = styled.div`

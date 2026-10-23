@@ -116,12 +116,7 @@ const PortfolioSchool = () => {
         :
         <>
             <ObjectFullDisplay id="ObjectFullDisplay">
-            <ExpandButtonsRow id="ExpandButtonsRow">
-                <Return onClick={() => handleReturn(!expand)}>GO BACK</Return>
-                {isImageSlideshow ? <ImgIndexHolder>{imageIndex + 1} / {slideshowImages.length}</ImgIndexHolder> : <></>}
-                {videoAndSlideshowSwitch ? <ViewImagesButton onClick={() => handleVideoImagesSwitch()}>View Video</ViewImagesButton> : <ViewImagesButton onClick={() => handleVideoImagesSwitch()}>View Images</ViewImagesButton>}
-                
-            </ExpandButtonsRow>
+            
             {isImage ? 
                 
                 <>
@@ -136,6 +131,11 @@ const PortfolioSchool = () => {
                     <>
                     {isImageSlideshow ?
                     <>
+                        <ExpandButtonsRow id="ExpandButtonsRow">
+                            <Return onClick={() => handleReturn(!expand)}>GO BACK</Return>
+                            {isImageSlideshow ? <ImgIndexHolder>{imageIndex + 1} / {slideshowImages.length}</ImgIndexHolder> : <></>}
+                            <BackButtonBuffer>Image Slideshow</BackButtonBuffer>
+                        </ExpandButtonsRow>
                         <SlideshowHolder>
                             <PrevButton onClick={() => HandleSlideshow(imageIndex, slideshowImages, false)}>⮜</PrevButton>
                             <ImageHolder id="image" src={slideshowImages[imageIndex]} />
@@ -158,7 +158,15 @@ const PortfolioSchool = () => {
                     {videoAndSlideshowSwitch ?
                     //some videos have an image or images attached - they just go here too
                     <>
-                        
+                        <ExpandButtonsRow id="ExpandButtonsRow">
+                            <Return onClick={() => handleReturn(!expand)}>GO BACK</Return>
+                            {isImageSlideshow ? <ImgIndexHolder>{imageIndex + 1} / {slideshowImages.length}</ImgIndexHolder> : <></>}
+                            {videoAndSlideshowSwitch ? 
+                            
+                            <ViewImagesButton onClick={() => handleVideoImagesSwitch()}>View Video</ViewImagesButton> 
+                            : <ViewImagesButton onClick={() => handleVideoImagesSwitch()}>View Images</ViewImagesButton>}
+                            
+                        </ExpandButtonsRow>
                         <SlideshowHolder>
                             <PrevButton onClick={() => HandleSlideshow(imageIndex, slideshowImages, false)}>⮜</PrevButton>
                             <ImageHolder id="image" src={slideshowImages[imageIndex]} />
@@ -167,6 +175,14 @@ const PortfolioSchool = () => {
                     </> 
                     ://videoAndSlideshowSwitch false
                     <>
+                    <ExpandButtonsRow id="ExpandButtonsRow">
+                <Return onClick={() => handleReturn(!expand)}>GO BACK</Return>
+                {videoAndSlideshowSwitch ? 
+                
+                <ViewImagesButton onClick={() => handleVideoImagesSwitch()}>View Video</ViewImagesButton> 
+                : <ViewImagesButton onClick={() => handleVideoImagesSwitch()}>View Images</ViewImagesButton>}
+                
+                </ExpandButtonsRow>
                     <VideoHolder controls loop >
                         <source src={enlargedImage} type="video/mp4"/>
                     </VideoHolder>
@@ -175,9 +191,12 @@ const PortfolioSchool = () => {
                 </>
                 ://isImageSlideshow false
                 <>
-                <video controls loop >
+                <ExpandButtonsRow id="ExpandButtonsRow">
+                    <Return onClick={() => handleReturn(!expand)}>GO BACK</Return>
+                </ExpandButtonsRow>
+                <VideoHolder controls loop >
                     <source src={enlargedImage} type="video/mp4"/>
-                </video>
+                </VideoHolder>
                 </>
                 }
             </>
@@ -196,7 +215,7 @@ const FullPageHolder = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: rgb(30, 36, 56);
+    background-color: rgb(29, 29, 31);
     padding-bottom: 1%;
 `;
 
@@ -240,8 +259,7 @@ const NextButton = styled.div`
     background-color: rgba(56, 56, 56, 0.29);
     width: 3%;
     text-align: center;
-    height: 20%;
-    margin-top: 20%;
+    height: 150px;
     font-size: 35px;
     &:hover {
         background-color: rgba(135, 135, 135, 0.29);
@@ -256,8 +274,7 @@ const PrevButton = styled.div`
     background-color: rgba(56, 56, 56, 0.29);
     width: 3%;
     text-align: center;
-    height: 20%;
-    margin-top: 20%;
+    height: 150px;
     font-size: 35px;
     &:hover {
         background-color: rgba(135, 135, 135, 0.29);
@@ -271,8 +288,13 @@ const ShowDescriptionButton = styled.div`
     width: 10%;
     color: white;
     text-align: center;
+    background-color: #36A1E7;
+    border-top: 2px solid #36A1E7;
+    border-bottom: 2px solid #36A1E7;
+    border-radius: 8px;
     &:hover {
-        background-color: rgba(135, 135, 135, 0.29);
+        border-top: 2px solid orangered;
+        border-bottom: 2px solid orangered;
         cursor: pointer;
     }
 `;
@@ -290,17 +312,29 @@ const ViewImagesButton = styled.div`
         cursor: pointer;
     }
 `;
+const BackButtonBuffer = styled.div`
+    width: 50%;
+    float: right;
+    text-align: center;
+    background-color: rgb(26, 26, 26);
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    margin-bottom: .5%;
+`;
 
 const Expand = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40%;
-    background-color: rgb(35, 42, 84);
+    background-color: #36A1E7;
+    border-top: 2px solid #36A1E7;
+    border-bottom: 2px solid #36A1E7;
     margin-top: 2%;
     border-radius: 8px;
     &:hover {
-        drop-shadow(5px 5px 5px);
+        border-top: 2px solid orangered;
+        border-bottom: 2px solid orangered;
         cursor: pointer;
     }
 `;
@@ -333,9 +367,10 @@ const Title = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #36A1E7;
     width: 100%;
     font-size: 20px;
+    font-weight: bold;
 `;
 
 const Description = styled.div`
@@ -350,6 +385,7 @@ const SlideshowHolder = styled.div`
     display: flex;
     height: 100%;
     flex-direction: row;
+    align-items: center;
 `;
 
 const ImageHolder = styled.img`
@@ -387,7 +423,8 @@ const ObjectDisplay = styled.div`
     margin-left: 0.5%;
     margin-right: 0.5%;
     margin-top: .5%;
-    background-color: rgb(26, 26, 26);
+    padding-top: .3%;
+    background-color: rgb(19, 24, 37);
 `;
 
 const ObjectFullDisplay = styled.div`
