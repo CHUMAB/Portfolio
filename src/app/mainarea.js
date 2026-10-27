@@ -52,12 +52,8 @@ export default function MainArea() {
         <MenuHolder id="MenuHolder">
             
         <MenuDiv id="MenuDiv">
-            <NameDiv>CAM WATT</NameDiv>
+            <NameDiv><NameText>CAM WATT</NameText></NameDiv>
              {portfolio ? <BufferDiv>Portfolio Navigation</BufferDiv> : <BufferDiv>{headerQuotes[Math.floor(Math.random() * headerQuotes.length)]}</BufferDiv>}
-        
-            
-
-
             <ButtonsHolder>
                 {about ? <ActiveLeftButton id="About" onClick={handlePageSwitch}>ABOUT</ActiveLeftButton> : <LeftButton id="About" onClick={handlePageSwitch} >ABOUT</LeftButton> }
                 {portfolio ? <ActiveButton id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</ActiveButton> : <Button id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</Button>}
@@ -103,6 +99,11 @@ const Background = styled.div`
     height: 100%;
 `;
 
+const NameText = styled.div`
+    display: flex;
+    padding-right: 30%;
+`;
+
 const Footer = styled.div`
     display: flex;
     width: 100%;
@@ -119,6 +120,7 @@ const AreaHolder = styled.div`
     align-items: flex-end;
     height: 100%;
     width: 100vw;
+    
 `;
 
 const MainAreaHolder = styled.div`
@@ -134,6 +136,7 @@ const MenuHolder = styled.div`
     align-items: flex-end;
     width: 100%;
     background-color: rgb(26, 32, 70);
+    
 `;
 
 const NameDiv = styled.div`
@@ -156,6 +159,7 @@ const BufferDiv = styled.div`
     align-items: center;
     justify-content: center;
     color: rgba(255, 255, 255, 0.69);
+    
 `;
 
 const ButtonsHolder = styled.div`
@@ -171,6 +175,7 @@ const MenuDiv = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
+    
 `;
 
 const Button = styled.div`

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import portfolioArray from "./portfolioItem";
 import PortfolioSchool from "./portfolioschool";
 import Shmucks from "./portfolioshmucks.js";
+import Current from "./portfolioCurrent";
 
 const Portfolio = () => {
 
@@ -70,6 +71,7 @@ const Portfolio = () => {
         <MenuButtons />
         {school ? <PortfolioSchool /> : <></>}
         {capstone ? <Shmucks /> : <></>}
+        {current ? <Current /> : <></>}
         </>
     )
 }
