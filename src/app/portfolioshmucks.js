@@ -9,10 +9,11 @@ const Shmucks = () => {
     return (
         <>
         <ShmucksHolder>
-            <LinkHolder><Link target="_blank" href="https://defeated-wizards.itch.io/shmucks">⎋ ITCH.IO Link</Link></LinkHolder>
+            
         <UpperContentHolder>
             <ImageHolder id="shmucksrenderimage" src="../SHMUCKS_Render.png"></ImageHolder>
             <HalfTextArea id="textarea">
+                <LinkHolder><Link target="_blank" href="https://defeated-wizards.itch.io/shmucks">⎋ ITCH.IO Link</Link></LinkHolder>
                 <Title>OVERVIEW</Title><br />
                 <Body>SHMUCKS was my capstone project for my Interactive Media Developer Diploma. I worked in a team of 3 with full creative freedom over the project.<br /><br />
                 SHMUCKS was pitched as a Real Time Stratagy game with the goal to evolve in to having Roguelike elements. The core concept was to be able to simulate large-scale
@@ -72,8 +73,6 @@ const Shmucks = () => {
 const LinkHolder = styled.div`
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
 `;
 const Link = styled.a`
     color: white;
@@ -81,7 +80,7 @@ const Link = styled.a`
     justify-content: center;
     display: flex;
     flex-direction: column;
-    width: 10%;
+    width: 30%;
     &:hover {
         color: #36A1E7;
     }

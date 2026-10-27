@@ -123,6 +123,11 @@ const PortfolioSchool = () => {
                 {isFigma ?
                     //might only have one figma link but want it on the portfolio
                     <>
+                    <ExpandButtonsRow id="ExpandButtonsRow">
+                            <Return onClick={() => handleReturn(!expand)}>GO BACK</Return>
+                            <BackButtonBuffer>Figma Display</BackButtonBuffer>
+                    </ExpandButtonsRow>
+                    <FigmaBufferDiv></FigmaBufferDiv>
                     <FigmaHolder 
                     src="https://embed.figma.com/proto/c6mHsyyDaClcayaI8bOovy/Project-3?node-id=28-83&p=f&scaling=fit&content-scaling=fit&page-id=0%3A1&starting-point-node-id=28%3A83&embed-host=share" />           
                     </>
@@ -304,9 +309,8 @@ const ViewImagesButton = styled.div`
     float: right;
     text-align: center;
     background-color: rgb(26, 26, 26);
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    margin-bottom: .5%;
+    border-left: 1px solid orangered;
+    border-right: 1px solid orangered;
     &:hover {
         background-color: rgba(135, 135, 135, 0.29);
         cursor: pointer;
@@ -317,9 +321,8 @@ const BackButtonBuffer = styled.div`
     float: right;
     text-align: center;
     background-color: rgb(26, 26, 26);
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    margin-bottom: .5%;
+    border-left: 1px solid orangered;
+    border-right: 1px solid orangered;
 `;
 
 const Expand = styled.div`
@@ -344,10 +347,9 @@ const Return = styled.div`
     justify-content: center;
     align-items: center;
     width: 50%;
-    margin-bottom: .5%;
     background-color: rgb(26, 26, 26);
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+    border-right: 1px solid orangered;
+    border-left: 1px solid orangered;
     &:hover {
         background-color: rgba(135, 135, 135, 0.29);
         cursor: pointer;
@@ -361,6 +363,7 @@ const ExpandButtonsRow = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-radius: 8px;
 `;
 
 const Title = styled.div`
@@ -371,6 +374,10 @@ const Title = styled.div`
     width: 100%;
     font-size: 20px;
     font-weight: bold;
+`;
+
+const FigmaBufferDiv = styled.div`
+    height: 85vh;
 `;
 
 const Description = styled.div`

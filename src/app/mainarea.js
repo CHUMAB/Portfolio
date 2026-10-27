@@ -11,6 +11,7 @@ import Resume from './resume';
 import AboutMe from "./aboutme";
 import PortfolioSchool from './portfolioschool';
 import Portfolio from './portfolio';
+import headerQuotes from "./HeaderQuotes";
 
 export default function MainArea() {
 
@@ -19,6 +20,7 @@ export default function MainArea() {
     const [about, setAbout] = React.useState(false);
     const [syllabus, setSyllabus] = React.useState(false);
     const [portfolio, setPortfolio] = React.useState(true);
+    const [quote, setQuote] = React.useState("");
 
     const handlePageSwitch = (event) => {
         var clickedButton = event.target.id;
@@ -51,12 +53,18 @@ export default function MainArea() {
             
         <MenuDiv id="MenuDiv">
             <NameDiv>CAM WATT</NameDiv>
-            <BufferDiv></BufferDiv>
-            <LeftButton id="About" onClick={handlePageSwitch} >ABOUT</LeftButton>
-            <Button id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</Button>
-            <RightButton id="Resume" onClick={handlePageSwitch} >RESUME</RightButton>
-            {/* <Button id="Runescape" onClick={handlePageSwitch} >RUNESCAPE</Button> */}
-            {/* <Button className="rounded-t-lg"></Button> */}
+             {portfolio ? <BufferDiv>Portfolio Navigation</BufferDiv> : <BufferDiv>{headerQuotes[Math.floor(Math.random() * headerQuotes.length)]}</BufferDiv>}
+        
+            
+
+
+            <ButtonsHolder>
+                {about ? <ActiveLeftButton id="About" onClick={handlePageSwitch}>ABOUT</ActiveLeftButton> : <LeftButton id="About" onClick={handlePageSwitch} >ABOUT</LeftButton> }
+                {portfolio ? <ActiveButton id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</ActiveButton> : <Button id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</Button>}
+                {resume ? <ActiveRightButton id="Resume" onClick={handlePageSwitch}>RESUME</ActiveRightButton> : <RightButton id="Resume" onClick={handlePageSwitch} >RESUME</RightButton>}
+                {/* <Button id="Runescape" onClick={handlePageSwitch} >RUNESCAPE</Button> */}
+                {/* <Button className="rounded-t-lg"></Button> */}
+            </ButtonsHolder>
         </MenuDiv>
         </MenuHolder>
         <Background>
@@ -125,23 +133,15 @@ const MenuHolder = styled.div`
     flex-direction: column;
     align-items: flex-end;
     width: 100%;
-    padding-right: .5%;
     background-color: rgb(26, 32, 70);
-`;
-
-const BufferDiv = styled.div`
-    display: flex;
-    align-items: flex-start;
-    text-align: center;
-    width: 50%;
 `;
 
 const NameDiv = styled.div`
     display: flex;
     align-items: center;
     text-align: center;
-    width: 25%;
-    margin-left: 2%;
+    justify-content: center;
+    width: 20%;
     margin-top: .5%;
     margin-bottom: .5%;
     color: rgb(76, 183, 236);
@@ -149,27 +149,42 @@ const NameDiv = styled.div`
     border-right: 2px solid OrangeRed;
 `;
 
+const BufferDiv = styled.div`
+    display: flex;
+    text-align: center;
+    width: 35%;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.69);
+`;
+
+const ButtonsHolder = styled.div`
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    margin-top: .5%;
+    margin-bottom: .5%;
+`;
+
 const MenuDiv = styled.div`
     height: 7vh;
     width: 100%;
-    float: right;
     display: flex;
     flex-direction: row;
 `;
 
 const Button = styled.div`
     border-top:
-    height: 4.4vh;
+    height: 100%;
     border-right: 2px solid OrangeRed;
     border-left: 2px solid OrangeRed;
-    width: 20%;
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    margin-top: .5%;
-    margin-bottom: .5%;
+    font-size: 20px;
     &:hover {
         background-color: rgba(65, 65, 65, 0.21);
         border-bottom: 1px solid rgb(26, 26, 26);
@@ -183,16 +198,15 @@ const Button = styled.div`
 
 const LeftButton = styled.div`
     border-top:
-    height: 4.4vh;
+    height: 100%;
     border-left: 2px solid OrangeRed;
-    width: 20%;
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    margin-top: .5%;
-    margin-bottom: .5%;
+    font-size: 20px;
     &:hover {
         background-color: rgba(65, 65, 65, 0.21);
         border-bottom: 1px solid rgb(26, 26, 26);
@@ -206,16 +220,82 @@ const LeftButton = styled.div`
 
 const RightButton = styled.div`
     border-top:
-    height: 4.4vh;
+    height: 100%;
     border-right: 2px solid OrangeRed;
-    width: 20%;
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    margin-top: .5%;
-    margin-bottom: .5%;
+    font-size: 20px;
+    &:hover {
+        background-color: rgba(65, 65, 65, 0.21);
+        border-bottom: 1px solid rgb(26, 26, 26);
+        cursor: pointer;
+    }
+    &:active:not(:disabled) {
+        background-color: rgb(26, 26, 26);
+        border-bottom: 1px solid rgb(26, 26, 26);
+    }
+`;
+
+const ActiveButton = styled.div`
+    border-top:
+    height: 100%;
+    border-right: 2px solid OrangeRed;
+    border-left: 2px solid OrangeRed;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #36A1E7;
+    font-size: 20px;
+    &:hover {
+        background-color: rgba(65, 65, 65, 0.21);
+        border-bottom: 1px solid rgb(26, 26, 26);
+        cursor: pointer;
+    }
+    &:active:not(:disabled) {
+        background-color: rgb(26, 26, 26);
+        border-bottom: 1px solid rgb(26, 26, 26);
+    }
+`;
+
+const ActiveLeftButton = styled.div`
+    border-top:
+    height: 100%;
+    border-left: 2px solid OrangeRed;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #36A1E7;
+    font-size: 20px;
+    &:hover {
+        background-color: rgba(65, 65, 65, 0.21);
+        border-bottom: 1px solid rgb(26, 26, 26);
+        cursor: pointer;
+    }
+    &:active:not(:disabled) {
+        background-color: rgb(26, 26, 26);
+        border-bottom: 1px solid rgb(26, 26, 26);
+    }
+`;
+
+const ActiveRightButton = styled.div`
+    border-top:
+    height: 100%;
+    border-right: 2px solid OrangeRed;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #36A1E7;
+    font-size: 20px;
     &:hover {
         background-color: rgba(65, 65, 65, 0.21);
         border-bottom: 1px solid rgb(26, 26, 26);

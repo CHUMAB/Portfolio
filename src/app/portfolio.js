@@ -14,6 +14,11 @@ const Portfolio = () => {
     const [capstone, setCapstone] = React.useState(true);
     const [current, setCurrent] = React.useState(false);
 
+    //TODO
+    //videos
+    //images buttons bigger / color
+    //port nav bar look different
+
     const handlePortfolioTabButtons = (event) => {
         var clickedButton = event.target.id;
 
@@ -36,11 +41,27 @@ const Portfolio = () => {
 
     const MenuButtons = () => {
         return (
-            <MenuDiv id="PortMenu">
-                {school ? <ActiveButton id="school" onClick={handlePortfolioTabButtons}>School Work</ActiveButton> : <Button id="school" onClick={handlePortfolioTabButtons}>School Work</Button>}
-                {capstone ? <ActiveButton id="capstone" onClick={handlePortfolioTabButtons}>Capstone</ActiveButton> : <Button id="capstone" onClick={handlePortfolioTabButtons}>Capstone</Button>}
-                {current ? <ActiveButton id="current" onClick={handlePortfolioTabButtons}>Current Work</ActiveButton> : <Button id="current" onClick={handlePortfolioTabButtons}>Current Work</Button>}
-            </MenuDiv>  
+            <>
+            <RowHolder>
+            <LeftBuffer></LeftBuffer>
+            <ButtonsHolder>
+                <MenuDiv id="PortMenu">
+                    {school ? <ActiveButton id="school" onClick={handlePortfolioTabButtons}>School Work</ActiveButton> : <Button id="school" onClick={handlePortfolioTabButtons}>School Work</Button>}
+                    {capstone ? <ActiveMiddleButton id="capstone" onClick={handlePortfolioTabButtons}>Capstone</ActiveMiddleButton> : <MiddleButton id="capstone" onClick={handlePortfolioTabButtons}>Capstone</MiddleButton>}
+                    {current ? <ActiveButton id="current" onClick={handlePortfolioTabButtons}>Current Work</ActiveButton> : <Button id="current" onClick={handlePortfolioTabButtons}>Current Work</Button>}
+                </MenuDiv>  
+            </ButtonsHolder>
+            <RightBuffer>
+                {/* this is a bit silly but it fixes a ~1px alignment issue so here it is */}
+                <BorderHolderLol>
+                    {capstone ? <LinkHolder>
+                        <Link target="_blank" href="https://defeated-wizards.itch.io/shmucks">⎋ ITCH.IO Link</Link>
+                    </LinkHolder>
+                    : <></> }
+                </BorderHolderLol>
+            </RightBuffer>
+            </RowHolder>
+            </>
         )
     }
 
@@ -59,21 +80,73 @@ const MenuDiv = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    background-color: rgb(26, 32, 70);
+`;
+
+const BorderHolderLol = styled.div`
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid OrangeRed;
+`;
+
+
+const RowHolder = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+`;
+
+const LeftBuffer = styled.div`
+    width: 20%;
+    border-right: 2px solid OrangeRed;
     background-color: rgb(29, 29, 31);
+`;
+
+
+const ButtonsHolder = styled.div`
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+
+const RightBuffer = styled.div`
+    background-color: rgb(29, 29, 31);
+    width: 45%;
 `;
 
 const Button = styled.div`
     height: 80%;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    width: 15%;
+    
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    background-color: rgb(26, 26, 26);
-    margin-bottom: 15px;
+    background-color: rgb(26, 32, 70);
+    font-size: 20px;
+    &:hover {
+        background-color: rgba(95, 95, 95, 0.36);
+        cursor: pointer;
+    }
+`;
+
+const MiddleButton = styled.div`
+    height: 80%;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: rgb(26, 32, 70);
+    border-right: 2px solid OrangeRed;
+    border-left: 2px solid OrangeRed;
+    font-size: 20px;
     &:hover {
         background-color: rgba(95, 95, 95, 0.36);
         cursor: pointer;
@@ -82,23 +155,54 @@ const Button = styled.div`
 
 const ActiveButton = styled.div`
     height: 80%;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    width: 15%;
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    background-color: #36A1E7;
-    margin-bottom: 15px;
+    color: #36A1E7;
+    background-color: rgb(26, 32, 70);
+    font-size: 20px;
     &:hover {
-        background-color: rgba(95, 95, 95, 0.23)
+        background-color: rgba(95, 95, 95, 0.23);
         cursor: pointer;
     }
 `;
 
+const ActiveMiddleButton = styled.div`
+    height: 80%;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #36A1E7;
+    background-color: rgb(26, 32, 70);
+    font-size: 20px;
+    border-right: 2px solid OrangeRed;
+    border-left: 2px solid OrangeRed;
+    &:hover {
+        background-color: rgba(95, 95, 95, 0.23);
+        cursor: pointer;
+    }
+`;
 
+const LinkHolder = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 7%;
+`;
+const Link = styled.a`
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    &:hover {
+        color: #36A1E7;
+    }
+`;
 
 
 export default Portfolio;
