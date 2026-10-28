@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import portfolioArray from "./portfolioItem";
+//import portfolioArray from "./portfolioItem";
 
 const PortfolioSchool = () => {
 
-    const [expand, setExpand] = React.useState(true);
+    const [expand, setExpand] = React.useState(false);
     const [description, setDescription] = React.useState(true);
     const [descriptionString, setDescriptionString] = React.useState("Read More");
     const [enlargedImage, setEnlargedImage] = React.useState("");
@@ -17,6 +17,32 @@ const PortfolioSchool = () => {
     const [isFigma, setIsFigma] = React.useState(false);
     const [videoAndSlideshowSwitch, setVideoAndSlideshowSwitch] = React.useState(false);
     const [imageIndex, setImageIndex] = React.useState(0);
+    const [portfolioArray, setPortfolioArray] = React.useState([]);
+
+    React.useEffect(() => {//accessing my json data first
+        (async() => {
+            try {
+            const data = await axios.post('/api/schoolItems', {schoolConnection: "data"})
+            setPortfolioArray(data.data[0]);
+            } catch(e) {
+                console.log(e)
+            }
+        })()
+    }, [])
+
+    //Browser back button functionality zone STILL IN TESTING
+    //_____________________________
+    useEffect(() => { //this helps the following function work, pushes a state on page load
+        window.history.pushState(null, "", window.location.href);
+    }, []);
+
+    window.onpopstate = () => {// little function to trigger the return function when browser back button is pressed 
+        window.history.pushState(null, "", window.location.href);
+        if (expand === true) {
+            handleReturn(!expand)
+        }
+    };
+    //_____________________________
 
     const handleExpand = (name, isImage, descriptionString, isFigma, slideshow, expandToggle) => {
         if (slideshow == undefined) {
@@ -41,8 +67,6 @@ const PortfolioSchool = () => {
     }
 
     const HandleSlideshow = (index, array, next) => {
-        console.log("INDEX: "+index)
-        console.log("array length: "+array.length)
         if (next) {
             index += 1;
 
@@ -71,7 +95,7 @@ const PortfolioSchool = () => {
         <FullPageHolder>
         <>
         
-        {expand ? 
+        {!expand ? //no one ask why it's this way round
         <>
         {description ? <ShowDescriptionButton onClick={handleShowDescriptions}>Hide Descriptions</ShowDescriptionButton>
         : <ShowDescriptionButton onClick={handleShowDescriptions}>Show Descriptions</ShowDescriptionButton>}
@@ -293,10 +317,11 @@ const ShowDescriptionButton = styled.div`
     width: 10%;
     color: white;
     text-align: center;
-    background-color: #36A1E7;
+    background-color: rgb(19, 24, 37);
     border-top: 2px solid #36A1E7;
     border-bottom: 2px solid #36A1E7;
     border-radius: 8px;
+    margin-top: .5%;
     &:hover {
         border-top: 2px solid orangered;
         border-bottom: 2px solid orangered;
@@ -329,8 +354,8 @@ const Expand = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
-    background-color: #36A1E7;
+    width: 20%;
+    background-color: rgb(19, 24, 37);
     border-top: 2px solid #36A1E7;
     border-bottom: 2px solid #36A1E7;
     margin-top: 2%;

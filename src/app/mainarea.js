@@ -24,7 +24,7 @@ export default function MainArea() {
 
     const handlePageSwitch = (event) => {
         var clickedButton = event.target.id;
-        console.log(clickedButton);
+        
         setAbout(false);
         setResume(false);
         setPortfolio(false);

@@ -18,7 +18,9 @@ const Portfolio = () => {
     //TODO
     //videos
     //images buttons bigger / color
-    //port nav bar look different
+    //contact info
+    //links
+    //second resume functionality
 
     const handlePortfolioTabButtons = (event) => {
         var clickedButton = event.target.id;

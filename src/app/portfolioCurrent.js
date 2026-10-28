@@ -7,7 +7,6 @@ import Renders from './currentItems.js'
 
 const Current = () => {
 
-
     return (
         <>
             <MainHolder>
@@ -15,19 +14,20 @@ const Current = () => {
                     This page is under construction - as I make more things that are worth showing they will go here. <br />
                     I am happy to talk about my solo game if you ask - it is currently extremely in development. <br />
                     For now, here is a cool test render of a mountain in an ocean I made
+                    
                 </PageHeader>
                 <ItemHolder>
-                {/* {Renders.map((item) => {
+                {/* {testData.map((item) => {
                     return (
                         <>
                         <ObjectHolder>
                             <div>{item.name}</div>
-                            <ImageHolder src={item.imageURL}/>
                         </ObjectHolder>
                         </>
                     )
                 })} */}
                 <ImageHolder src={Renders[2].imageURL}></ImageHolder>
+                
                 </ItemHolder>
             </MainHolder>
         </>

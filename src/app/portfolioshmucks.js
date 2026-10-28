@@ -67,7 +67,7 @@ const Shmucks = () => {
                 We are interested in expanding on the game in a few ways:<br />
                 </Body>
                 <ListBody>
-                - Rogeulike upgrades between waves<br />
+                - Roguelike upgrades between waves<br />
                 - Expanding on the wave-based system<br />
                 - Many more planned classes with unique abilities<br />
                 - Additional gamemode with exploration focus<br />
