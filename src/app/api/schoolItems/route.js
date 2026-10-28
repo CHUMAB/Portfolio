@@ -8,8 +8,13 @@ export async function POST(req) {
 
     if (schoolConnection) {                    
         const schoolData = [];
-
-        const fetchData = await axios.get('https://aylfxdea9iuc4d4g.public.blob.vercel-storage.com/portfolioItem.json');
+        try {
+            const fetchData = await axios.get('https://aylfxdea9iuc4d4g.public.blob.vercel-storage.com/schoolArray.json');
+        }
+        catch(e) {
+            console.log(e)
+        }
+        
         let data = fetchData.data;
 
         schoolData.push( data )
