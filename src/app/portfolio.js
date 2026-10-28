@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import portfolioArray from "./portfolioItem";
+//import portfolioArray from "./portfolioItem";
 import PortfolioSchool from "./portfolioschool";
 import Shmucks from "./portfolioshmucks.js";
 import Current from "./portfolioCurrent";
