@@ -61,6 +61,7 @@ export default function MainArea() {
 
     return (
         <>
+        <title>Cam Watt</title>
         {isMobile ? 
         <MobileDetected>MOBILE DETECTED<br />
         <MobileText>
