@@ -17,10 +17,18 @@ export default function MainArea() {
 
     const [resume, setResume] = React.useState(false);
     const [runescape, setRunescape] = React.useState(false);
-    const [about, setAbout] = React.useState(false);
+    const [about, setAbout] = React.useState(true);
     const [syllabus, setSyllabus] = React.useState(false);
-    const [portfolio, setPortfolio] = React.useState(true);
+    const [portfolio, setPortfolio] = React.useState(false);
     const [quote, setQuote] = React.useState("");
+
+    React.useEffect(() => {//this fixes a hydration issue when loading the page?
+        setQuote(headerQuotes[Math.floor(Math.random() * headerQuotes.length)]);
+    }, [])
+
+    const changeQuote = () => {
+        setQuote(headerQuotes[Math.floor(Math.random() * headerQuotes.length)]);
+    }
 
     const handlePageSwitch = (event) => {
         var clickedButton = event.target.id;
@@ -29,6 +37,8 @@ export default function MainArea() {
         setResume(false);
         setPortfolio(false);
         setRunescape(false);
+
+        changeQuote();
 
         switch(clickedButton) {
             case "About":
@@ -53,7 +63,7 @@ export default function MainArea() {
             
         <MenuDiv id="MenuDiv">
             <NameDiv><NameText>CAM WATT</NameText></NameDiv>
-             {portfolio ? <BufferDiv>Portfolio Navigation</BufferDiv> : <BufferDiv>{headerQuotes[Math.floor(Math.random() * headerQuotes.length)]}</BufferDiv>}
+             {portfolio ? <BufferDiv>Portfolio Navigation</BufferDiv> : <BufferDiv>{quote}</BufferDiv>}
             <ButtonsHolder>
                 {about ? <ActiveLeftButton id="About" onClick={handlePageSwitch}>ABOUT</ActiveLeftButton> : <LeftButton id="About" onClick={handlePageSwitch} >ABOUT</LeftButton> }
                 {portfolio ? <ActiveButton id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</ActiveButton> : <Button id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</Button>}

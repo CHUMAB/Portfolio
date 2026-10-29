@@ -38,10 +38,9 @@ const Current = () => {
 const MainHolder = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 100%;
-    height: 90vh;
+    height: 150vh;
     background-color: rgb(29, 29, 31);
 `;
 
@@ -51,9 +50,12 @@ const PageHeader = styled.div`
     justify-content: center;
     text-align: center;
     align-items: center;
-    width: 80%;
-    height: 10%;
+    width: 60%;
+    height: 5%;
     background-color: OrangeRed;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    border-radius: 8px;
 `;
 
 const ItemHolder = styled.div`

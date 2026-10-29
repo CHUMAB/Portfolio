@@ -29,7 +29,7 @@ const Resume = () => {
         <> 
         <Background>
             <ButtonsHolder>
-                <InfoText>GENERAL resume for youth work and game dev - feel free to download the PDF for the full size</InfoText>
+                <InfoText>GENERAL resume for youth work and game dev<br /> feel free to download the PDF for the full size</InfoText>
                 {gameDev ? <SelectedButton>Game Dev</SelectedButton> : <Button id="game" onClick={handleSwap}>Game Dev</Button> }
                 {youthWork ? <SelectedButton>Youth Work</SelectedButton> : <Button id="youth" onClick={handleSwap}>Youth Work</Button> }
             </ButtonsHolder>

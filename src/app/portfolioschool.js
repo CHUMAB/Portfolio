@@ -103,8 +103,8 @@ const PortfolioSchool = () => {
             
             {portfolioArray.map((item) => {
                 return (
-                <>
-                <ObjectDisplay>
+                // this is lazy i know if i ever have enough content to worry about keys I will update it
+                <ObjectDisplay key={(Math.random()*(1, 1000))}>
                     <>
                     <Title>{item.name}</Title>
                     <div>{item.tags}</div>
@@ -131,7 +131,7 @@ const PortfolioSchool = () => {
                     
                     </>
                 </ObjectDisplay>
-                </>
+                
                 )
             })}
             <>
@@ -139,7 +139,7 @@ const PortfolioSchool = () => {
         </PortfolioHolder> </>
         :
         <>
-            <ObjectFullDisplay id="ObjectFullDisplay">
+            <ObjectFullDisplay id="ObjectFullDisplay" key={(Math.random()*(1, 1000))}>
             
             {isImage ? 
                 
