@@ -8,10 +8,9 @@ export async function POST(req) {
 
     if (schoolConnection) {                    
         const schoolData = [];
-        
+        const fetchData = [];
         try {
-            const fetchData = await axios.get('https://aylfxdea9iuc4d4g.public.blob.vercel-storage.com/schoolArray.json');
-            
+            fetchData = await axios.get('https://aylfxdea9iuc4d4g.public.blob.vercel-storage.com/schoolArray.json');
         }
         catch(e) {
             console.log(e)
@@ -24,6 +23,4 @@ export async function POST(req) {
     }
     return NextResponse.json(schoolData);
 }
-
-
 
