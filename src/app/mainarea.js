@@ -63,7 +63,7 @@ export default function MainArea() {
             
         <MenuDiv id="MenuDiv">
             <NameDiv><NameText>CAM WATT</NameText></NameDiv>
-             {portfolio ? <BufferDiv>Portfolio Navigation</BufferDiv> : <BufferDiv>{quote}</BufferDiv>}
+             {portfolio ? <BufferDiv>Portfolio Navigation</BufferDiv> : <BufferDiv onClick={changeQuote}>{quote}</BufferDiv>}
             <ButtonsHolder>
                 {about ? <ActiveLeftButton id="About" onClick={handlePageSwitch}>ABOUT</ActiveLeftButton> : <LeftButton id="About" onClick={handlePageSwitch} >ABOUT</LeftButton> }
                 {portfolio ? <ActiveButton id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</ActiveButton> : <Button id="Portfolio" onClick={handlePageSwitch}>PORTFOLIO</Button>}

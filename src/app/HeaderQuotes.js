@@ -7,7 +7,6 @@ const headerQuotes = [
     "Who needs a website builder app when you can just spend 200 hours aligning divs",
     "Javascript is my friend Javascript is my friend Javascript is my friend",
     "Ask me about my collection of styled components",
-    "Now with back button functionality!"
 ]
 
 export default headerQuotes;

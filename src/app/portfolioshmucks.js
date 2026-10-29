@@ -9,8 +9,9 @@ const Shmucks = () => {
     return (
         <>
         <ShmucksHolder>
-            
+            <PageTitle>CAPSTONE PROJECT: SHMUCKS</PageTitle>
         <UpperContentHolder>
+            
             <ImageHolder id="shmucksrenderimage" src="../SHMUCKS_Render.png"></ImageHolder>
             <HalfTextArea id="textarea">
                 <Title>OVERVIEW</Title><br />
@@ -115,6 +116,18 @@ const Title = styled.div`
     font-size: 30px;
     font-weight: bold;
     color: #36A1E7;
+`;
+
+const PageTitle = styled.div`
+    display: flex;
+    width: 100%;
+    background-color: rgb(29, 29, 31);
+    font-size: 30px;
+    font-weight: bold;
+    color: #36A1E7;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Body = styled.div`
