@@ -12,6 +12,7 @@ import AboutMe from "./aboutme";
 import PortfolioSchool from './portfolioschool';
 import Portfolio from './portfolio';
 import headerQuotes from "./HeaderQuotes";
+import { useIsMobile } from "./useIsMobile";
 
 export default function MainArea() {
 
@@ -21,6 +22,8 @@ export default function MainArea() {
     const [syllabus, setSyllabus] = React.useState(false);
     const [portfolio, setPortfolio] = React.useState(false);
     const [quote, setQuote] = React.useState("");
+
+    const isMobile = useIsMobile();
 
     React.useEffect(() => {//this fixes a hydration issue when loading the page?
         setQuote(headerQuotes[Math.floor(Math.random() * headerQuotes.length)]);
@@ -58,9 +61,20 @@ export default function MainArea() {
 
     return (
         <>
+        {isMobile ? 
+        <MobileDetected>MOBILE DETECTED<br />
+        <MobileText>
+        You are seeing this because you are accessing my website on a mobile device.
+        My website does not support mobile viewing as the content I wish to display here is designed for desktop viewing.
+        Your viewership is very important to me, please access my website on a desktop or tablet device.<br />
+        If you believe you are seeing this in error, please email me at CamWattDev@gmail.com and I will get right on that.
+        </MobileText>
+        <Maxwell src="./maxwell.gif"></Maxwell>
+        </MobileDetected> :  
+        //above section is just for mobile 
         <AreaHolder id="areaholder">
         <MenuHolder id="MenuHolder">
-            
+         
         <MenuDiv id="MenuDiv">
             <NameDiv><NameText>CAM WATT</NameText></NameDiv>
              {portfolio ? <BufferDiv>Portfolio Navigation</BufferDiv> : <BufferDiv onClick={changeQuote}>{quote}</BufferDiv>}
@@ -83,12 +97,13 @@ export default function MainArea() {
             {portfolio ? <HolderDiv><Portfolio /></HolderDiv> : <div></div>}
         </MainAreaHolder>
         </Background>
+        
         <Footer>
             <FooterText>This is a mobile UNfriendly website please email me at CamWattDev@gmail.com to discuss a mobile overhaul</FooterText>
             <FooterText>All work on this website developed by Cam Watt please be nice to me | © 2026 Cam Watt</FooterText>
         </Footer>
         </AreaHolder>
-        
+        }
         </>
     )
 }
@@ -131,6 +146,32 @@ const AreaHolder = styled.div`
     height: 100%;
     width: 100vw;
     
+`;
+
+const MobileDetected = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    color: white;
+    background-color: rgb(26, 32, 70);
+    text-align: center;
+    padding-top: 5%;
+`;
+
+const MobileText = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+    width: 80vw;
+    color: white;
+    background-color: rgb(26, 32, 70);
+`;
+
+const Maxwell = styled.img`
+    height: 40%;
+    width: 80%;
 `;
 
 const MainAreaHolder = styled.div`
