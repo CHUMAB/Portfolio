@@ -23,5 +23,3 @@ export async function POST(req) {
     return NextResponse.json(schoolData);
 }
 
-export const dynamic = "force-static";
-
