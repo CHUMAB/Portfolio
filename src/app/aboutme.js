@@ -42,18 +42,6 @@ const AboutMe = () => {
                 <br />
             </LowerBodyText>
         </AboutHolder>
-        <AboutHolder>
-            <LowerBodyText>
-                Specifically me.
-                <br />
-            </LowerBodyText>
-        </AboutHolder>
-        <AboutHolder>
-            <LowerBodyText>
-                I am the human.
-                <br />
-            </LowerBodyText>
-        </AboutHolder>
         </FullPage>
         </>
     )
