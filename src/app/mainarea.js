@@ -101,7 +101,7 @@ export default function MainArea() {
         
         <Footer>
             <FooterText>This is a mobile UNfriendly website please email me at CamWattDev@gmail.com to discuss a mobile overhaul</FooterText>
-            <FooterText>All work on this website developed by Cam Watt please be nice to me | © 2026 Cam Watt</FooterText>
+            <FooterText>All work on this website developed by Cam Watt | © 2026 Cam Watt</FooterText>
         </Footer>
         </AreaHolder>
         }
@@ -220,6 +220,7 @@ const ButtonsHolder = styled.div`
     flex-direction: row;
     margin-top: .5%;
     margin-bottom: .5%;
+    padding-right: 1%;
 `;
 
 const MenuDiv = styled.div`
@@ -227,7 +228,6 @@ const MenuDiv = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
-    
 `;
 
 const Button = styled.div`

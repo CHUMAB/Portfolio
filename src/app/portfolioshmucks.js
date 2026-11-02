@@ -10,7 +10,7 @@ const Shmucks = () => {
         <>
         <ShmucksHolder>
             <PageTitle>CAPSTONE PROJECT: SHMUCKS</PageTitle>
-                        <a href="../AATRIFANTA/index.html">Press</a>
+                        
         <UpperContentHolder>
             
             <ImageHolder id="shmucksrenderimage" src="../SHMUCKS_Render.png"></ImageHolder>

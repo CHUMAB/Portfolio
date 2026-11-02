@@ -16,6 +16,7 @@ const PortfolioSchool = () => {
     const [slideshowImages, setSlideshowImages] = React.useState([]);
     const [isFigma, setIsFigma] = React.useState(false);
     const [videoAndSlideshowSwitch, setVideoAndSlideshowSwitch] = React.useState(false);
+    const [hasLink, setHasLink] = React.useState(false);
     const [imageIndex, setImageIndex] = React.useState(0);
     const [portfolioArray, setPortfolioArray] = React.useState([]);
 
@@ -44,13 +45,19 @@ const PortfolioSchool = () => {
     };
     //_____________________________
 
-    const handleExpand = (name, isImage, descriptionString, isFigma, slideshow, expandToggle) => {
+    const handleExpand = (name, isImage, descriptionString, isFigma, slideshow, link, expandToggle) => {
         if (slideshow == undefined) {
             setIsImageSlideshow(false);
         }
         else {
             setIsImageSlideshow(true)
             setSlideshowImages(slideshow);
+        }
+        if (link) {
+            setHasLink(true)
+        }
+        else {
+            setHasLink(false)
         }
         setIsImage(isImage);
         setExpand(expandToggle);
@@ -109,7 +116,7 @@ const PortfolioSchool = () => {
                     <Title>{item.name}</Title>
                     <div>{item.tags}</div>
                     {item.isImage ? 
-                    <> {item.link ? <a href="../AATRIFANTA/index.html">Link to game!</a> : <></>}
+                    <> {item.link ? <GameLink href="../AATRIFANTA/index.html">Click here to play game</GameLink> : <></>}
                         {item.setThumbnailImage ? 
                         <ImageHolder id="image" src={item.slideshow[Math.floor(Math.random() * item.slideshow.length)]} alt="" />
 
@@ -126,7 +133,7 @@ const PortfolioSchool = () => {
                         }</>
                         
                     }
-                    <Expand onClick={() => handleExpand(item.imageURL, item.isImage, item.description, item.isFigma, item.slideshow, !expand)}>EXPAND</Expand>
+                    <Expand onClick={() => handleExpand(item.imageURL, item.isImage, item.description, item.isFigma, item.slideshow, item.link, !expand)}>EXPAND</Expand>
                     {description ? <Description>{item.description}</Description> : <></>}
                     
                     </>
@@ -172,7 +179,15 @@ const PortfolioSchool = () => {
                         </SlideshowHolder>
                     </>
                         :
+                        <>
+                        {hasLink ? <GameLink href="../AATRIFANTA/index.html">Click here to play game</GameLink> : <></>}
+                        <ExpandButtonsRow id="ExpandButtonsRow">
+                            <Return onClick={() => handleReturn(!expand)}>GO BACK</Return>
+                            <BackButtonBuffer>Image</BackButtonBuffer>
+                        </ExpandButtonsRow>
+                        
                         <ImageHolder id="image"  src={enlargedImage} />
+                        </>
                     }
                     </>
                 }
@@ -256,6 +271,15 @@ const ButtonHolder = styled.div`
     margin-top: 1%;
 `;
 
+const GameLink = styled.a`
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-bottom: 1%;
+    text-decoration: none;
+    font-size: 18px;
+`;
+
 const MenuDiv = styled.div`
     height: 5vh;
     width: 100%;
@@ -331,6 +355,10 @@ const ShowDescriptionButton = styled.div`
 
 const ViewImagesButton = styled.div`
     width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     float: right;
     text-align: center;
     background-color: rgb(26, 26, 26);
@@ -343,8 +371,11 @@ const ViewImagesButton = styled.div`
 `;
 const BackButtonBuffer = styled.div`
     width: 50%;
+    height: 100%;
     float: right;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(26, 26, 26);
     border-left: 1px solid orangered;
     border-right: 1px solid orangered;
@@ -372,6 +403,7 @@ const Return = styled.div`
     justify-content: center;
     align-items: center;
     width: 50%;
+    height: 100%;
     background-color: rgb(26, 26, 26);
     border-right: 1px solid orangered;
     border-left: 1px solid orangered;
@@ -385,10 +417,13 @@ const ExpandButtonsRow = styled.div`
     display: flex;
     flex-direction: row;
     width: 70%;
+    height: 5%;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 8px;
+    margin-top: .5%;
+    margin-bottom: .5%;
 `;
 
 const Title = styled.div`
@@ -415,14 +450,13 @@ const Description = styled.div`
 
 const SlideshowHolder = styled.div`
     display: flex;
-    height: 100%;
     flex-direction: row;
     align-items: center;
 `;
 
 const ImageHolder = styled.img`
-    width: 98%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
 `;
 
@@ -465,8 +499,8 @@ const ObjectFullDisplay = styled.div`
     flex-direction: column;
     align-items: center;
     color: white;
-    padding-top: 1%;
-    height: 100%;
+    margin-top: 1%;
+    height: 80vh;
     width: 90%;
     background-color: rgb(26, 26, 26);
     border-left: 2px solid OrangeRed;

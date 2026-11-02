@@ -16,7 +16,7 @@ const AboutMe = () => {
                 <Column>
                 <Title>ABOUT ME<br /></Title>
                 <BodyText>Hi! My name is Cam, I am a recent graduate of the Interactive Media Developer program at Camosun College. My studies focused on programming, 2D and 3D art and animation, video game development, 
-                    UI/UX design, as well as web development. I have a basic understanding of database management, cybersecurity, and computer mathamatics </BodyText>
+                    UI/UX design, as well as web development. I also have a basic understanding of database management, cybersecurity, and computer mathamatics. </BodyText>
                 </Column>
             </ContentHolder>
             
@@ -24,15 +24,33 @@ const AboutMe = () => {
         <AboutHolder>
             <LowerBodyText>
                 Since graduation, I have been creating my own projects in Unity, primarily focusing on sharpening my programming skills, creating a distinct art style in 3D, and expanding my understanding of shaders.
-                I have a love for RPG adventure games, and want to create a game and a world that are entirely my own. Outside of my own projects, I look forward to working with others in the industry to advance my understanding
-                and create games and media.
+                I have a love for RPG adventure games, so I am creating a game and a world that are entirely my own. Outside of my own projects, I look forward to working with others in the industry to advance my understanding
+                and create meaningful games and media.
                 <br />
             </LowerBodyText>
         </AboutHolder>
         <AboutHolder>
             <LowerBodyText>
-                I tolerate webdev overall and even enjoy some aspects of it. Javascript was the language that showed me just how much I could achieve with programming, and learning React has streamlined creating this website
-                significantly. Programming this website was a fun project, but I find designing is far less in other mediums.
+                This website was made entirely by me using React. It is currently designed to show the work I did in school, but will grow in to being a display for all the work I am doing / will do since graduating.
+                My desire is for this project to grow alongside me as I continue to work, create, and grow.
+                <br />
+            </LowerBodyText>
+        </AboutHolder>
+        <AboutHolder>
+            <LowerBodyText>
+                All work for and on this website is and always will be human made. 
+                <br />
+            </LowerBodyText>
+        </AboutHolder>
+        <AboutHolder>
+            <LowerBodyText>
+                Specifically me.
+                <br />
+            </LowerBodyText>
+        </AboutHolder>
+        <AboutHolder>
+            <LowerBodyText>
+                I am the human.
                 <br />
             </LowerBodyText>
         </AboutHolder>
@@ -62,6 +80,8 @@ const Title = styled.div`
     justify-content: center;
     width: 100%;
     font-size: 30px;
+    color: #36A1E7;
+    margin-bottom: 1%;
 `;
 const Column = styled.div`
     color: white;
@@ -79,6 +99,7 @@ const BodyText = styled.div`
     font-size: 20px;
     margin-left: 2%;
 `;
+
 const LowerBodyText = styled.div`
     color: white;
     display: flex;

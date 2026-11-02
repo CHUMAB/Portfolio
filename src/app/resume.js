@@ -29,23 +29,15 @@ const Resume = () => {
         <> 
         <Background>
             <ButtonsHolder>
-                <InfoText>GENERAL resume for youth work and game dev<br /> feel free to download the PDF for the full size</InfoText>
-                {gameDev ? <SelectedButton>Game Dev</SelectedButton> : <Button id="game" onClick={handleSwap}>Game Dev</Button> }
-                {youthWork ? <SelectedButton>Youth Work</SelectedButton> : <Button id="youth" onClick={handleSwap}>Youth Work</Button> }
+                <InfoText>You can view or download a copy of my game development resume here.<br /> For more information, you can email me at CamWattDev@gmail.com</InfoText>
+                {/* {gameDev ? <SelectedButton>Game Dev</SelectedButton> : <Button id="game" onClick={handleSwap}>Game Dev</Button> } */}
+                {/* commented out for now might use this again in the future */}
+                {/* {youthWork ? <SelectedButton>Youth Work</SelectedButton> : <Button id="youth" onClick={handleSwap}>Youth Work</Button> } */}
             </ButtonsHolder>
             {gameDev ? 
             <PDFHolder>
                 <PDF class="pdf" 
                 data="../RESUME-GameDev.pdf"
-                width="80%"
-                height="100%">
-                </PDF>
-            </PDFHolder> : <></>
-            }
-            {youthWork ? 
-            <PDFHolder>
-                <PDF class="pdf" 
-                data="../RESUME-Youth.pdf"
                 width="80%"
                 height="100%">
                 </PDF>
@@ -113,7 +105,7 @@ const SelectedButton = styled.div`
 
 const InfoText = styled.div`
     height: 100%;
-    width: 30%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,6 +115,8 @@ const InfoText = styled.div`
     border-radius: 8px;
     color: white;
     text-align: center;
+    padding-left: 1%;
+    padding-right: 1%;
 `;
 
 const Background = styled.div`
