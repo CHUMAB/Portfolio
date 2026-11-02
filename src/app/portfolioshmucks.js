@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useRef } from 'react';
 import styled from 'styled-components';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const Shmucks = () => {
 
     return (
         <>
         <ShmucksHolder>
             <PageTitle>CAPSTONE PROJECT: SHMUCKS</PageTitle>
+                        <a href="../AATRIFANTA/index.html">Press</a>
         <UpperContentHolder>
             
             <ImageHolder id="shmucksrenderimage" src="../SHMUCKS_Render.png"></ImageHolder>

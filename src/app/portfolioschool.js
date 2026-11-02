@@ -109,13 +109,13 @@ const PortfolioSchool = () => {
                     <Title>{item.name}</Title>
                     <div>{item.tags}</div>
                     {item.isImage ? 
-                    <>
+                    <> {item.link ? <a href="../AATRIFANTA/index.html">Link to game!</a> : <></>}
                         {item.setThumbnailImage ? 
                         <ImageHolder id="image" src={item.slideshow[Math.floor(Math.random() * item.slideshow.length)]} alt="" />
 
                         : <ImageHolder id="image" src={item.imageURL} alt="" />
                         }</>
-                        :
+                        ://if not an image
                         <>
                         {item.setThumbnailImage ? 
                         <ImageHolder id="ImageHolder" src={item.slideshow[Math.floor(Math.random() * item.slideshow.length)]} alt="" />     
