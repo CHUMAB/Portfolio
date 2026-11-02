@@ -1,0 +1,148 @@
+{
+    "instructions":"You wake up in the local cozy inn. Today is the day. Your adventure awaits!",
+    "choices":{
+        "get_up":{
+            "instructions":"You get out of bed [-10hp]. that sucked but at least you get to eat breakfast early",
+            "choices":{
+                "eat_large_breakfast":{
+                    "instructions":"You feel great, and head out to town! [+10hp]",
+                    "choices":{
+                        "adventure_shop":{
+                            "instructions":"Any and all adventuring gear available here!",
+                            "choices":{
+                                "buy_sword":{
+                                    "instructions":"This will help with those monsters you keep hearing about"
+                                },
+                                "buy_armor":{
+                                    "instructions":"Basic armor - not a good look but it will protect you"
+                                },
+                                "buy_health_potion":{
+                                    "instructions":"Tastes like week-old coffee, smells like poison, heals you for [50hp]"
+                                }
+                            }
+                        }
+                    }
+                },
+                "grab_snack_and_leave":{
+                    "instructions":"You pack some food up and hit the road early!",
+                    "choices":{
+                        "north":{
+                            "instructions":"You head north!",
+                            "choices":"null"
+                        },
+                        "east":{
+                            "instructions":"You head east!",
+                            "choices":"null"
+                        },
+                        "west":{
+                            "instructions":"You head west!",
+                            "choices":"null"
+                        }
+                    }
+                }
+            }
+                
+           
+            },
+            "snooze_a_little":{
+            "instructions":"You sleep just a little longer [+5hp]",
+            "choices":{
+                "eat_leftover_breakfast":{
+                    "instructions":"Looks like the other patrons beat you here. Still, old bread is better than nothing!"
+                },
+                "one_coffee_no_food":{
+                    "instructions":"You can easily replace one meal per day with coffee for sure"
+                    }
+            }
+
+        }
+        
+    },
+
+    "which_way":{
+        "instructions":"3 gates leave the city in different directions. There is also a shop it is reccomended to visit before an adventure!",
+        "choices":{
+            "west":{
+                "instructions":"You head in to the Western Woodlands, known for rogue beasts and a popular trade route for the brave and capable.",
+                "scenario":"You walk for a short distance before discovering a man off to the side of the road.",
+                "dialogue":"'Hello good adventurer! I appear to have fallen victim to a local Ogre. Don't worry about me I will head to town soon. I wounded it but I am in no state to fight. Would you be able to take it out? It would mean a lot to those who pass through here.'",
+                "no_thanks":"'Not very adventurer-like of you, friend. Perhaps you should consider retirement?",
+                "ogre_defeated":"With the ogre dead, the Western Woodlands should be safe! You should head back to town <br> You recieve loot:",
+                "retirement":"You retreat to the relative safety of the villiage. As you do you feel your agency slip away. Surely this was the right choice. Surely..",
+                "loot":{
+                    "ogre_sword":"Why did the ogre have a sword? Thought it had a club",
+                    "ogre_potion":"Looks like coffee. Smells like coffee. Is it coffee?",
+                    "ogre_trinket":"Wow rare Ogre Trinket! You have heard about these in town, rare and expensive!"
+                }
+            },
+            "east":{
+                "instructions":"You head east towards the beachfront! It's currently low tide. There is a path along the sand line that looks easier to walk on than the sand. The beach itself is covered in sandy-looking boulders about knee high, and you can only see one individual here: a tall individual wearing what appears to be knight's armor from head to toe, wielding a large battleaxe.",
+                "scenario":" The knight is standing in the sand near the waters' edge. They notice you and beckon you over.",
+                "choices":{
+                    "go_over_there":{
+                      "instructions":"You walk over to the knight, they address you with a nod before speaking:",
+                      "dialogue":"Hello adventuror, are you here to become stronger? You look like you need it.",
+                      "choices":{
+                        "ask_for_help":{
+                            "instructions":"'My help? Sure, this beach is crawling with Rock Crabs. They've been getting out of hand to be honest, that's why I'm here, taking a few of them out will help rebalance the ecosystem here. Go ahead and hit one of the boulders here if you want to fight one, they won't fight you until provoked but a few might come after you.'",
+                            "choices":{
+                                "ok_sure":"You blindly attack a nearby boulder",
+                                "fight_me":{
+                                    "dialogue":"You want to fight me? Sure but I'm by no means above killing you.",
+                                    "choices":{
+                                        "yeah":"Very well then, whenever you're ready",
+                                        "actually_no":{
+                                        "dialogue":"Good choice, you going to fight the crabs?",
+                                        "choices":{
+                                            "yeah":"You blindly attack a nearby boulder",
+                                            "no_i_want_to_leave":"You head back to the village, perhaps a simpler life would suffice"
+                                            } 
+                                            }
+                                        }
+                                    } 
+                                     
+                            }
+                            
+                            },
+                            "fight_me":{
+                                "dialogue":"You want to fight me? Sure but I'm by no means above killing you.",
+                                "choices":{
+                                        "yeah":"Very well then, whenever you're ready",
+                                        "actually_no":{
+                                            "dialogue":"Good choice, you going to fight the crabs?",
+                                            "choices":{
+                                                "yeah":"You blindly attack a nearby boulder",
+                                                "no_i_want_to_leave":"You head back to the village, perhaps a simpler life would suffice"
+                                    } 
+                                }
+                            }
+                        }
+                            
+                        }
+                    },
+                    "ignore_them":{
+                        "instructions":"You ignore the knight, and walk along the path. Sand is bad anyway",
+                        "dialogue":"The knight shouts to you: 'Hey, fool! You're in danger!'",
+                        "choices":{
+                            "crab_attack":"You get too close to a rock and it attacks you!"
+                        }
+                    }
+                }
+            },
+            "north":{
+                "instructions":"You pass through the North Gate, and follow the path towards the mountain. As you round a bend you are greeted with quite a sight! A large, red, angry looking dragon looms over a few figures, locked in combat. One of the figures breaks away - A cloaked woman with a large staff - and approaches you:",
+                "dialogue":"Hey! You must be able to handle yourself if you're here - we've finally get the draogn out of hiding we have a chance to take it out! Help us out?",
+                "choices":{
+                    "yeah_get_me_in_there":{
+                        "dialogue":"'Great, you need anything? I have a spare potion'",
+                        "choices":{
+                            "a_potion_sounds_great":"",
+                            "no_thanks_i_can_handle_myself":""
+                        }
+                    },
+                    "woah_scary_dragon_no_thanks":""
+                }
+            }
+        }
+    }
+}

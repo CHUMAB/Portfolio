@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" href="includes/styles.css">
+    <title>Cam Watt - ICS 128 - Project</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom">
+      <a class="navbar-brand" href="#">Cam Watt</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../lab-1/index.html">Back to Labs</a>
+          </li>
+        </ul>
+        <!-- <span class="navbar-text">
+          Navbar text with an inline element
+        </span> -->
+      </div>
+    </nav>
+
+
+
+<div id="landingPage">
+
+  <h3>Welcome, adventurer!</h3><br>
+  <button id="start" class="btn landingButtons" data-bs-toggle="modal" data-bs-target="#nameModal"><h4>START GAME</h4></button><br>
+  <button id="settings" type="button" class="btn landingButtons" data-bs-toggle="modal" data-bs-target="#settingsModal">
+   <h4>SETTINGS</h4> 
+  </button><br>
+  <button  class="btn landingButtons" data-bs-toggle="modal" data-bs-target="#infoModal"><h4 id="info">INFO</h4></button>
+</div>
+
+
+
+<div id="settingsModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Settings Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>FONT:</p>
+        <button id="notoSans" class="btn btn-primary my-1">NOTO SANS</button><br>
+        <button id="medievalSharp" class="btn btn-primary">MEDIEVAL SHARP</button>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="nameModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">What is your name?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="nameForm" class="modal-body">
+        <input id="inputName" type="text" class="" value="">
+        <p id="feedback"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+        <button id="confirmName" type="submit" class="btn btn-primary">Confirm Name</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="infoModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">INFO</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="infoBody" class="modal-body">
+        <p id="bgInstructions" class="card-text">Hello! Thank you for participating in my game!</p>
+      <p id="infoText">This game is a demonstration of my Javascript, HTML, CSS, Bootstrap, and JQUERY knowledge. This game was created 
+        for ICS-128 Winter 2025 semester as part of the IMD Program. For my final project i wanted to choose the "choose your own adventure"
+       catagory because I like making adventures and thought it would be in interesting challenge.</p>
+       
+       <p>I wanted to make a basic adventure that 
+       highlights as many elements of what I have learned in to one experience, with a focus on creating "combat encounters". While the current 
+       functionality of these encounters is currently limited, I would like to expand on them in the future. Limitations of how long I had and 
+       the amount of work it took to get what I do have working meant that the experience can feel rather one-dimentional for now, but I hoped 
+       that what I did add is cool and fun! 
+      </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="errorCard" class="card col-6 offset-3 text-white bg-secondary mb-3" style="display: none;" >
+  <!-- <img src="..." class="card-img-top" alt="..."> -->
+  <div class="card-body">
+    <h5 class="card-title">WHOOPS</h5>
+    <p id="bgInstructions" class="card-text">Looks like there's an issue with the server just now, please check again later!</p>
+    <p id="errorHere"></p>
+    <img src="includes\maxwell.gif">
+  </div>
+  <div class="card-body">
+    
+  </div>
+</div>
+
+<div id="beginnings" class="" style="display:none;">
+
+  <h3 class="">TEST</h3>
+  <h3 id="dataHere"></h3>
+  <h3 id="moreDataTest"></h3>
+
+  <div id='deathScreen'>
+
+  </div>
+
+  <div class="row column-gap-3 align-items-center align-self-center">
+ 
+         <div id="statsCard" class="card col-3 text-white bg-dark mb-3 border border-primary rounded">
+           <div class="card-header">
+              <h3 id="headerName">NAME GOES HERE</h3> 
+           </div>
+           <ul class="list-group list-group-flush">
+              <li class="list-group-item  text-white bg-dark mb-3 border-top border-danger rounded">HEALTH
+                <div id="healthFullWidth" class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                  <div id="healthBar" class="progress-bar bg-danger" style="width: 75%">75</div>
+                </div>
+              </li>
+              <li class="list-group-item  text-white bg-dark mb-3 border-top border-success rounded">PROGRESS
+                <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <div id="progressBar" class="progress-bar bg-success" style="width: 0%">0</div>
+              </div>
+             </li>
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-light rounded">MAP</li>
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-warning rounded">GOLD
+              <p id="gold"></p>
+              <p>⛀⛁⛃⛂</p>
+             </li>
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-info rounded">INVENTORY
+                <p id="inventory"></p>
+                <p id="crabHelmet"></p>
+                <p id="ogreSword"></p>
+                <p>HEALING</p>
+                <p id="potions" title="Heals 50HP"></p>
+                <p id="ogrePotions"></p>
+                <p id="crabJuice"></p>
+                <p id="dragonPotion"></p>
+                <p>TREASURE</p>
+                <p id="ogreTreasure"></p>
+             </li>
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-info rounded">TIMER
+              <div id="timer"></div>
+
+             </li>
+             
+          </ul>
+        </div>
+
+
+        <div id="choices1" class="card col-6 offset-1 text-white bg-secondary mb-3" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">STARTING OUT</h5>
+            <p id="bgInstructions" class="card-text"></p>
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush">
+            <li id="bgChoice1" class="list-group-item option-select">Get up</li>
+            <li id="bgChoice2" class="list-group-item option-select">Snooze a little</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="cardFood" class="card col-6 offset-1 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="foodChoices" class="card-title">You are up and hungry</h5>
+            <p id="tunnelsInstructions" class="card-text">Text to set up scenario from JSON</p>
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush">
+            <li id="foodChoice1" class="list-group-item option-select" style="display:none;"></li>
+            <li id="foodChoice2" class="list-group-item option-select" style="display:none;"></li>
+
+            <li id="foodChoice3" class="list-group-item option-select" style="display:none;"></li>
+            <li id="foodChoice4" class="list-group-item option-select" style="display:none;"></li>
+            <!--<li id="tunnelsChoice3" class="list-group-item option-select">Tunnel C</li>-->
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="cardWhichWay" class="card col-6 offset-1 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="foodChoices" class="card-title">What way go</h5>
+            <p id="whichWayInstructions" class="card-text">Text to set up scenario from JSON</p>
+            <p id="WhichWaySecondary" class="card-text">Text to set up scenario from JSON</p>
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush"><!--all options lead here, this is where it all actually starts from-->
+            <li id="whichWay1" class="list-group-item option-select">North</li>
+            <li id="whichWay2" class="list-group-item option-select">East</li>
+            <li id="whichWay2completed" class="list-group-item option-select" style="display:none;">East - Completed!</li>
+
+            <li id="whichWay3" class="list-group-item option-select">West</li>
+            <li id="whichWay3completed" class="list-group-item option-select" style="display:none;">West - Completed!</li>
+            <li id="whichWay4" class="list-group-item option-select">Adventure Shop</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="cardShop" class="card col-6 offset-1 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">Local store, local goods</h5>
+            <p id="shopInstructions" class="card-text">Text to set up scenario from JSON</p>
+          </div>
+          <ul id="storeChoicesList" class="list-group list-group-flush"><!--all options lead here, this is where it all actually starts from-->
+            <li id="shop1" class="list-group-item option-select"></li>
+            <li id="shop2" class="list-group-item option-select"></li>
+            <li id="shop3" class="list-group-item option-select"></li>
+            <li id="shopSellOgreTrinket" class="list-group-item option-select" style="display:none;">Sell Ogre Trinket [+20 gold]</li>
+            <li id="shopSellOgreSword" class="list-group-item option-select" style="display:none;">Sell Ogre Sword [+10 gold]</li>
+            <li id="shopSellCrabHelmet" class="list-group-item option-select" style="display:none;">Sell Crab Helmet [+10 gold]</li>
+          </ul>
+          <ul id="back" class="list-group mt-3 w-25">
+            <li id="backButton" class="list-group-item option-select w-35">BACK</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="westCard" class="card col-6 offset-1 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">The Western Woodlands</h5>
+            <p id="westInstructions" class="card-text">Text to set up scenario from JSON</p>
+            <p id="westScenario" class="card-text">Text to set up scenario from JSON</p>
+            <p id="westDialogue" class="card-text">Text to set up scenario from JSON</p>
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush"><!--all options lead here, this is where it all actually starts from-->
+            <li id="west1" class="list-group-item option-select"></li>
+            <li id="west2" class="list-group-item option-select"></li>
+            
+          </ul>
+          <ul id="back" class="list-group mt-3 w-25">
+            <li id="backToTownButton" class="list-group-item option-select w-35">Return to town</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="retirementCard" class="card col-6 offset-1 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="retireTitle" class="card-title">The Western Woodlands</h5>
+            <p id="retirementText" class="card-text">Text to set up scenario from JSON</p>
+            <button id="retireRestartGame">Retire</button>
+          </div>
+         
+        </div>
+
+        <div id="northCard" class="card col-6 offset-1 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">Base of the Northern Mountain</h5>
+            <p id="northInstructions" class="card-text">Text to set up scenario from JSON</p>
+            <p id="northScenario" class="card-text">Text to set up scenario from JSON</p>
+            <p id="northDialogue" class="card-text">Text to set up scenario from JSON</p>
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush northChoices"><!--all options lead here, this is where it all actually starts from-->
+          
+            
+          </ul>
+          
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="combatCard1" class="card col-6 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">OGRE FIGHT</h5>
+            <p id="combatInstructions" class="card-text">An Ogre! Wow! He looks hurt and either sad or angry</p>
+            <p id="combatText2" class="card-text">You see the ogre has a large club</p>
+            <p id="combatText3" class="card-text">The ogre sizes you up carefully</p>
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush"><!--all options lead here, this is where it all actually starts from-->
+            <li id="combatOgreAttack" class="list-group-item option-select">ATTACK</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="ogreCombatOver" class="card col-6 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">The Western Woodlands</h5>
+            <p id="combatOverInstructions" class="card-text"></p>
+            <p id="loot"></p>
+          </div>
+          <ul id="back" class="list-group mt-3 w-25">
+            <li id="ogreBackToTownButton" class="list-group-item option-select w-35">Return to town</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="crabsCombatOver" class="card col-6 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">The Beach</h5>
+            <p id="crabCombatOverInstructions" class="card-text"></p>
+            <p id="crabLoot"></p>
+          </div>
+          <ul id="back" class="list-group mt-3 w-25">
+            <li id="crabsBackToTownButton" class="list-group-item option-select w-35">Return to town</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="youWin" class="card col-6 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">You Win!</h5>
+            <p id="combatOverInstructions" class="card-text">The dragon is dead! celebrations all round!</p>
+            <p id="score"></p>
+            <button id="winRestartGame">Restart</button>
+          </div>
+          
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="ogreCard" class="card col-2 text-white bg-dark mb-3 border border-primary rounded" style="display: none;">
+          <div class="card-header">
+             <h3 id="headerName">LOCAL OGRE</h3> 
+             <h4 id="ogreStatus"></h4>
+          </div>
+          <ul class="list-group list-group-flush">
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-danger rounded">HEALTH
+               <div id="ogreHealthFullWidth" class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                 <div id="ogreHealthBar" class="progress-bar bg-danger" style="width: 70%">70</div>
+                 
+               </div>  
+               
+           </ul>
+           <p id="ogreHealthLoss"></p>
+        </div>
+
+        <div id="combatCard4" class="card col-6 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">DRAGON FIGHT</h5>
+            <p id="dragonCombatInstructions" class="card-text">Woa dragon! glad there's help here!</p>
+            <p id="dragonCombatText1" class="card-text"></p>
+            <p id="dragonCombatText2" class="card-text">The dragon sees you but seems preoccupied</p>
+            <p id="dragonCombatText3" class="card-text"></p>
+            <p id="dragonCombatText4" class="card-text"></p>
+            <p id="dragonCombatText5" class="card-text"></p>
+
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush"><!--all options lead here, this is where it all actually starts from-->
+            <li id="combatDragonAttack" class="list-group-item option-select">ATTACK</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="dragonCard" class="card col-2 text-white bg-dark mb-3 border border-primary rounded" style="display: none;">
+          <div class="card-header">
+             <h3 id="headerName">LOCAL DRAGON</h3> 
+             <h4 id="dragonStatus"></h4>
+          </div>
+          <ul class="list-group list-group-flush">
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-danger rounded">HEALTH
+               <div id="dragonHealthFullWidth" class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                 <div id="dragonHealthBar" class="progress-bar bg-danger" style="width: 70%">70</div>
+                 
+               </div>  
+               
+           </ul>
+           <p id="dragonHealthLoss"></p>
+        </div>
+
+        
+
+         <div id="deadCard" class="card col-6 offset-1 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="deadTitle" class="card-title">You Are Dead</h5>
+            <p id="deadText" class="card-text">You died. That sucks. You feel your life slipping away, a cold wind stings your skin...</p>
+            <button id="deadRestartGame"> Restart</button>
+          </div>
+          
+        </div>
+
+        <div id="eastCard" class="card col-6 offset-1 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">The Beach</h5>
+            <p id="eastInstructions" class="card-text">Text to set up scenario from JSON</p>
+            <p id="eastScenario" class="card-text">Text to set up scenario from JSON</p>
+            <p id="eastDialogue" class="card-text"></p>
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush eastChoices"><!--all options lead here, this is where it all actually starts from-->
+   
+          </ul>
+          <ul id="back" class="list-group list-group mt-3 w-25">
+            <li id="eastBackToTownButton" class="list-group-item back-button option-select w-35">Return to town</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="combatCard2" class="card col-6 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">ROCK CRABS FIGHT</h5>
+            <p id="combatInstructions" class="card-text"></p>
+            <p id="crabCombatText2" class="card-text">Many crabs attack you!</p>
+            <p id="potionInfo"></p>
+            <p id="crab1CombatText" class="card-text"></p>
+            <p id="crab2CombatText" class="card-text"></p>
+            <p id="crab3CombatText" class="card-text"></p>
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush"><!--all options lead here, this is where it all actually starts from-->
+            <li id="combatCrab1Attack" class="list-group-item option-select">ATTACK CRAB 1</li>
+            <li id="combatCrab2Attack" class="list-group-item option-select">ATTACK CRAB 2</li>
+            <li id="combatCrab3Attack" class="list-group-item option-select">ATTACK CRAB 3</li>
+
+            <li id="combatCrab1Cooldown" class="list-group-item option-select" style="display:none;">COOLDOWN</li>
+            <li id="combatCrab2Cooldown" class="list-group-item option-select" style="display:none;">COOLDOWN</li>
+            <li id="combatCrab3Cooldown" class="list-group-item option-select" style="display:none;">COOLDOWN</li>
+
+
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+
+        <div id="combatCard3" class="card col-6 text-white bg-secondary mb-3" style="display:none;" >
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 id="advShop" class="card-title">You are fighting a knight!</h5>
+            <p id="combatInstructions" class="card-text">The knight looks you up and down, you get the feeling they are not worried about you</p>
+            <p id="knightCombatText" class="card-text"></p>
+            <p id="potionInfo"></p>
+            <p id="knightCombatText2" class="card-text"></p>
+            <p id="knightCombatText3" class="card-text"></p>
+
+          </div>
+          <ul id="choicesList" class="list-group list-group-flush"><!--all options lead here, this is where it all actually starts from-->
+            <li id="combatKnight1Attack" class="list-group-item option-select">ATTACK</li>
+          </ul>
+          <div class="card-body">
+            
+          </div>
+        </div>
+        
+        <div id="knightCard" class="card col-2 text-white bg-dark mb-3 border border-primary rounded" style="display: none;">
+          <div class="card-header">
+             <h3 id="headerName">MYSTERIOUS KNIGHT</h3> 
+             <h4 id="knightStatus"></h4>
+          </div>
+          <ul class="list-group list-group-flush">
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-danger rounded">HEALTH
+               <div id="knightHealthFullWidth" class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                 <div id="knightHealthBar" class="progress-bar bg-danger" style="width: 100%">100</div>
+                 
+               </div>  
+               
+           </ul>
+           <p id="knight3HealthLoss"></p>
+        </div>
+
+    <div id="allCrabs" class="card col-2 text-white bg-dark mb-3 border border-primary rounded" style="display:none;">
+
+        <div id="crabCard1" class="card col-12 text-white bg-dark mb-3 border border-primary rounded" style="display: none;">
+          <div class="card-header">
+             <h3 id="headerName">LOCAL ROCK CRAB 1</h3> 
+             <h4 id="crab1Status"></h4>
+          </div>
+          <ul class="list-group list-group-flush">
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-danger rounded">HEALTH
+               <div id="crab1HealthFullWidth" class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                 <div id="crab1HealthBar" class="progress-bar bg-danger" style="width: 100%">100</div>
+                 
+               </div>  
+               
+           </ul>
+           <p id="crab1HealthLoss"></p>
+        </div>
+
+        <div id="crabCard2" class="card col-12 text-white bg-dark mb-3 border border-primary rounded" style="display: none;">
+          <div class="card-header">
+             <h3 id="headerName">LOCAL ROCK CRAB 2</h3> 
+             <h4 id="crab2Status"></h4>
+          </div>
+          <ul class="list-group list-group-flush">
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-danger rounded">HEALTH
+               <div id="crab2HealthFullWidth" class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                 <div id="crab2HealthBar" class="progress-bar bg-danger" style="width: 100%">100</div>
+                 
+               </div>  
+               
+           </ul>
+           <p id="crab2HealthLoss"></p>
+
+        </div>
+        <div id="crabCard3" class="card col-12 text-white bg-dark mb-3 border border-primary rounded" style="display: none;">
+          <div class="card-header">
+             <h3 id="headerName">LOCAL ROCK CRAB 3</h3> 
+             <h4 id="crab3Status"></h4>
+          </div>
+          <ul class="list-group list-group-flush">
+             <li class="list-group-item  text-white bg-dark mb-3 border-top border-danger rounded">HEALTH
+               <div id="crab3HealthFullWidth" class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                 <div id="crab3HealthBar" class="progress-bar bg-danger" style="width: 100%">100</div>
+                 
+               </div>  
+               
+           </ul>
+           <p id="crab3HealthLoss"></p>
+        </div>
+      </div>
+    
+   </div>
+
+</div>
+
+
+
+<!-- 
+<div id="mapContainer">
+
+  <div id="mapBorder">
+    <div id="location1"></div>
+    <div id="location2"></div>
+    <div id="location3"></div>
+    <div id="location4"></div>
+  </div>
+</div> -->
+
+
+
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top fixed-bottom">
+        <div class="col-md-4 d-flex align-items-center footer-text">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+          <span class="mb-3 mb-md-0 text-body-secondary footer-span">Starting Homepage for an ICS-128 Experience</span>
+        </div>
+      </footer>
+    </div>
+
+
+
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="includes/Script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+Major updates will go here probably
+
+Several first milestones
+First upload includes a couple weeks worth of progress, my major milestones roughly in order up until now are:
+- Main menu with start settings and info pages
+- Start sends to landing page with starting dialogue, options, and a character card
+- Used the starting out card to creat all following info/dialogue cards
+- Character card includes health bar, progress bar, a map section (possible feature later), gold, and an inventory
+- Formatted the page to be easy to look at and work with
+- Added a few intro choices to get used to the process of moving between info cards (areas)
+- Added functionality to add and subtract health from the health bar
+- Added a store that checks your gold and allows you to add items to your inventory - SWORD, ARMOR, and POTION
+- Prevented purchase of multiples of a single item
+- Created custom JSON data for the intro sequence including multiple paths to the 'HUB' area
+- Created 3 directional choices for player to choose from
+- Added a simple JSON-based scenario to set up combat encounter in the WEST tree
+- Added an enemy with same health bar functionality, formatted to the right side of the screen - OGRE
+- Added 2 combat options of ATTACK and USE POTION - may chance this functionality in the future
+- ATTACK option deals variable damage with a chance to deal critical damage, variable damage is returned at the same time
+- ATTACK option deals flat higher damage if a SWORDis equipped
+- OGRE deals less damage if you are wearing ARMOR
+- USE POTION checks for a potion in inventory and heals the user for a flat amount if they have one
+- Added a random loot table to the OGRE upon death, user can receive one of 3 items based on chance
+- Added selling functionality to the shop
+- Blocked the user form re-entering an area they have already cleared
+- Added death
+- Added ability to use a potion anywhere straight from inventory, opening up the possibility for a change in the combat system
+
+2nd major push: - this push didn't get pushed real cool
+Added most of the leadup scenario for killing the crabs
+- Dialogue, options
+- Dialogue tree that goes to the fight, will fill in rest later
+- Added functionality for attacking crab 1, and all 3 returning damage
+
+3rd major puch:
+Fleshed out the crab code, copied versions of it for attacking crabs 2 and 3
+- cleaned up console logs and unreached code
+- Copied code for all 3 crabs, making relevant changes for each one
+- Ensured combat could be approached in any order
+- First draft of changes to loot system from crabs, might refine
+
+4th major push:
+Cleaned up east encounter, steamlined some code, added all dialogue options for East section:
+- Allowed the encounter to end after killing all crabs - looked for a way to do it with 1 less input, will clean this up if I have time doesnt affect the game overall tho
+- Tied up all the dialogue trees, added a couple other routes to crab encounter and a couple ways to the knight encounter and a route to retire
+- Added knight encounter - in it's current state it is there to be impossible the knight basically always kills you this is intentional!
+- Upon finishing crab encounter, you now get the completed popup, loot dialogue (actual loot not yet added) and a return to town button 
+- added a check for if the player has completed both the east and west sections so they can now enter the north (WIP)
+
+5th major push:
+Added final area and dragon fight, as well as cleaned up a lot of wonky stuff:
+- North area now works once the player has beaten the east and west sections
+- North features a dragon fight with a bunch of other "adventurers"
+- Added all dialogue and options for the North section
+- Finishing the fight ends the game and posts the data including a final score
+- Fleshed out the return button functionality
+- Added font changing and info box
+- Cleaned up a bunch of code, added comments where needed and clarification on why I made choices
+- Death and retirement both now restart the game properly (wanted to do a more elaborate death sequence but time was a factor for it)
+
+Final push before hand in:
+- Got a playtest, fixed some bugs, some remain I'm sure
+- Final checks for anything terrible, all seems to be ok
+- Some spelling fixes, many remain

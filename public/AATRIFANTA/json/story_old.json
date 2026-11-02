@@ -1,0 +1,48 @@
+{
+    "instructions":"You see a fork in the path before you",
+    "choices":{
+       "left":{
+          "instructions":"You went left, and slipped on a banana.  Your knee hurts.  Your adventure is over",
+          "choices":null,
+          "can_go_back":false
+       },
+       "right":{
+          "instructions":"You went right.  There's never a wrong time to do the right thing.  You see three tunnels ahead of you.",
+          "choices":{
+             "tunnel_a":{
+                "instructions":"The tunnel is slimy, but it opens into a beautiful glade of elderberry bushes",
+                "choices":{
+                   "eat_a_berry":{
+                      "instructions":"Your tummy is now sick.  Your adventure is over",
+                      "choices":null,
+                      "can_go_back":false
+                   },
+                   "cut_down_a_bush":{
+                      "instructions":"The bees attack you.  Your adventure is over",
+                      "choices":null,
+                      "can_go_back":false
+                   },
+                   "proceed_down_the_path":{
+                      "instructions":"You found the prince/princess/pot of gold!  You won the adventure!",
+                      "choices":null,
+                      "win":true,
+                      "can_go_back":false
+                   }
+                },
+                "can_go_back":true
+             },
+             "tunnel_b":{
+                "instructions":"You get stuck.  Your adventure is over",
+                "can_go_back":false,
+                "choices":null
+             },
+             "tunnel_c":{
+                "instructions":"You smell something bad but come to a dead end",
+                "can_go_back":true,
+                "choices":null
+             }
+          },
+          "can_go_back":true
+       }
+    }
+ }
