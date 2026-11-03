@@ -59,7 +59,7 @@ const Portfolio = () => {
                 {/* this is a bit silly but it fixes a ~1px alignment issue so here it is */}
                 <BorderHolderLol>
                     {capstone ? <LinkHolder>
-                        <Link target="_blank" href="https://defeated-wizards.itch.io/shmucks">⎋ ITCH.IO Link</Link>
+                        
                     </LinkHolder>
                     : <></> }
                 </BorderHolderLol>
