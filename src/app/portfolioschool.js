@@ -160,7 +160,7 @@ const PortfolioSchool = () => {
                     </ExpandButtonsRow>
                     <FigmaBufferDiv></FigmaBufferDiv>
                     <FigmaHolder 
-                    src="https://embed.figma.com/proto/c6mHsyyDaClcayaI8bOovy/Project-3?node-id=28-83&p=f&scaling=fit&content-scaling=fit&page-id=0%3A1&starting-point-node-id=28%3A83&embed-host=share" />           
+                    src="https://embed.figma.com/proto/c6mHsyyDaClcayaI8bOovy/Project-3?content-scaling=fixed&kind=proto&node-id=28-83&page-id=0%3A1&scaling=scale-down&starting-point-node-id=28%3A83&show-proto-sidebar=0&embed-host=share" />           
                     </>
                     :
                     //images go here
@@ -519,9 +519,9 @@ const PortfolioHolder = styled.div`
 
 const FigmaHolder = styled.iframe`
     height: 80%;
-    width: 60%;
+    width: 80%;
     position: absolute;
-    margin-top: 2%;
+    margin-top: 4%;
 `;
 
 const ReturnButton = styled.div`
