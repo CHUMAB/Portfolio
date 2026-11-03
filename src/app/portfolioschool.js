@@ -450,6 +450,7 @@ const Description = styled.div`
 
 const SlideshowHolder = styled.div`
     display: flex;
+    height: 90%;
     flex-direction: row;
     align-items: center;
 `;
@@ -500,7 +501,7 @@ const ObjectFullDisplay = styled.div`
     align-items: center;
     color: white;
     margin-top: 1%;
-    height: 80vh;
+    height: 90vh;
     width: 90%;
     background-color: rgb(26, 26, 26);
     border-left: 2px solid OrangeRed;

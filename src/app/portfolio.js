@@ -51,7 +51,6 @@ const Portfolio = () => {
                 <MenuDiv id="PortMenu">
                     {school ? <ActiveButton id="school" onClick={handlePortfolioTabButtons}>School Work</ActiveButton> : <Button id="school" onClick={handlePortfolioTabButtons}>School Work</Button>}
                     {capstone ? <ActiveMiddleButton id="capstone" onClick={handlePortfolioTabButtons}>Capstone</ActiveMiddleButton> : <MiddleButton id="capstone" onClick={handlePortfolioTabButtons}>Capstone</MiddleButton>}
-                    
                     {current ? <ActiveButton id="current" onClick={handlePortfolioTabButtons}>Current Work</ActiveButton> : <Button id="current" onClick={handlePortfolioTabButtons}>Current Work</Button>}
                     
                 </MenuDiv>  
@@ -122,6 +121,7 @@ const ButtonsHolder = styled.div`
 const RightBuffer = styled.div`
     background-color: rgb(29, 29, 31);
     width: 45%;
+    padding-right: 1%;
 `;
 
 const Button = styled.div`

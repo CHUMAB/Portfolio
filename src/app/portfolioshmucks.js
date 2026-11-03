@@ -9,7 +9,9 @@ const Shmucks = () => {
     return (
         <>
         <ShmucksHolder>
-            <PageTitle>CAPSTONE PROJECT: SHMUCKS</PageTitle>
+            
+            <PageTitle>CAPSTONE PROJECT: SHMUCKS </PageTitle>
+            <Link target="_blank" href="https://defeated-wizards.itch.io/shmucks">⎋ ITCH.IO Link</Link>
                         
         <UpperContentHolder>
             
@@ -90,11 +92,13 @@ const LinkHolder = styled.div`
 `;
 const Link = styled.a`
     color: white;
+    text-align: center;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
+    margin-bottom: .5%;
     &:hover {
         color: #36A1E7;
     }

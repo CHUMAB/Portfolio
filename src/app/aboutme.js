@@ -16,7 +16,7 @@ const AboutMe = () => {
                 <Column>
                 <Title>ABOUT ME<br /></Title>
                 <BodyText>Hi! My name is Cam, I am a recent graduate of the Interactive Media Developer program at Camosun College. My studies focused on programming, 2D and 3D art and animation, video game development, 
-                    UI/UX design, as well as web development. I also have a basic understanding of database management, cybersecurity, and computer mathamatics. </BodyText>
+                    UI/UX design, as well as web development. I also have a basic understanding of database management, cybersecurity, and computer mathematics. </BodyText>
                 </Column>
             </ContentHolder>
             
@@ -24,15 +24,15 @@ const AboutMe = () => {
         <AboutHolder>
             <LowerBodyText>
                 Since graduation, I have been creating my own projects in Unity, primarily focusing on sharpening my programming skills, creating a distinct art style in 3D, and expanding my understanding of shaders.
-                I have a love for RPG adventure games, so I am creating a game and a world that are entirely my own. Outside of my own projects, I look forward to working with others in the industry to advance my understanding
-                and create meaningful games and media.
+                I have a love for RPG adventure games, so I am creating a game and a world that are entirely my own. Outside of my own projects, I look forward to working with others in the industry to 
+                create meaningful games and media.
                 <br />
             </LowerBodyText>
         </AboutHolder>
         <AboutHolder>
             <LowerBodyText>
-                This website was made entirely by me using React. It is currently designed to show the work I did in school, but will grow in to being a display for all the work I am doing / will do since graduating.
-                My desire is for this project to grow alongside me as I continue to work, create, and grow.
+                This website was made entirely by me using React. It is currently designed to show the work I completed in school, but will grow to focus on the work I am doing now.
+                
                 <br />
             </LowerBodyText>
         </AboutHolder>
